@@ -39,6 +39,3 @@ class WarehouseStaff(User):
     __mapper_args__ = {
         'polymorphic_identity': 'warehouseStaff'
     }
-
-
-Base.metadata.create_all(engine)
