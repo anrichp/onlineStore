@@ -4,6 +4,7 @@ from base import Base, engine, Session
 
 session = Session()
 
+
 class User(Base):
     __tablename__ = 'User'
 
