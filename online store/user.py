@@ -1,7 +1,8 @@
 from sqlalchemy import Column, String, Integer, Date
 
-from base import Base, engine
+from base import Base, engine, Session
 
+session = Session()
 
 class User(Base):
     __tablename__ = 'User'
@@ -18,6 +19,19 @@ class User(Base):
         'polymorphic_on': type,
         'polymorphic_identity': 'user'
     }
+
+    def __init__(self, first_name, last_name, email_address, contact_number):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.email_address = email_address
+        self.contact_number = contact_number
+
+    @classmethod
+    def createUser(cls, **kw):
+        obj = cls(**kw)
+        session.add(obj)
+        session.commit()
+        session.close()
 
 
 class Seller(User):

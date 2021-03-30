@@ -5,16 +5,9 @@ Base.metadata.create_all(engine)
 
 session = Session()
 
-Anrich = User(first_name='Anrich',
-              last_name='Potgieter',
-              email_address='anrichp@gmail.com',
-              contact_number='07907451834')
-
-session.add(Anrich)
-session.commit()
-session.close()
+User.createUser(first_name='Quintus', last_name='Potgieter',email_address='quintus@gmail.com', contact_number='0736229189')
 
 users = session.query(User).all()
 
 for user in users:
-    print(user.type)
+    print(user.first_name)
