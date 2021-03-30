@@ -12,6 +12,12 @@ class User(Base):
     contact_number = Column(String(20), unique=True)
     type = Column(String(20))
 
+    def __init__(self, first_name, last_name, email_address, contact_number):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.email_address = email_address
+        self.contact_number = contact_number
+
     __mapper_args__ = {
         'polymorphic_on': type,
         'polymorphic_identity': 'user'
