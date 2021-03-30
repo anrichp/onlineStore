@@ -39,7 +39,14 @@ class Customer(User):
     payment_details = Column(String(50))
 
     __mapper_args__ = {
-        'polymorphic_identity': 'seller'
+        'polymorphic_identity': 'customer'
+    }
+
+class WarehouseStaff(User):
+    job_title = Column(String(50))
+
+    __mapper_args__ = {
+        'polymorphic_identity': 'warehouseStaff'
     }
 
 class Seller(User):
@@ -53,7 +60,7 @@ class Seller(User):
 class SiteOwner(Seller):
 
     __mapper_args__ = {
-        'polymorphic_identity': 'thirdPartySeller'
+        'polymorphic_identity': 'siteOwner'
     }
 
 
