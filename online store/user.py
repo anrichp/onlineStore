@@ -41,15 +41,29 @@ class Seller(User):
     }
 
 
-class Customer(User):
+class SiteOwner(Seller):
 
     __mapper_args__ = {
-        'polymorphic_identity': 'customer'
+        'polymorphic_identity': 'thirdPartySeller'
     }
 
 
-class WarehouseStaff(User):
+class ThirdPartySeller(Seller):
 
     __mapper_args__ = {
-        'polymorphic_identity': 'warehouseStaff'
+        'polymorphic_identity': 'thirdPartySeller'
+    }
+
+
+class Individual(ThirdPartySeller):
+
+    __mapper_args__ = {
+        'polymorphic_identity': 'individual'
+    }
+
+
+class Orginisation(ThirdPartySeller):
+
+    __mapper_args__ = {
+        'polymorphic_identity': 'orginisation'
     }
