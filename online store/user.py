@@ -33,6 +33,7 @@ class User(Base):
         session.commit()
         session.close()
 
+
 class Customer(User):
     shipping_address = Column(String(50))
     billing_address = Column(String(50))
@@ -42,12 +43,14 @@ class Customer(User):
         'polymorphic_identity': 'customer'
     }
 
+
 class WarehouseStaff(User):
     job_title = Column(String(50))
 
     __mapper_args__ = {
         'polymorphic_identity': 'warehouseStaff'
     }
+
 
 class Seller(User):
     store_name = Column(String(50))
@@ -83,6 +86,14 @@ class Individual(ThirdPartySeller):
 class Orginisation(ThirdPartySeller):
     company_name = Column(String(50))
     tax_certificate = Column(String(50))
+
+    def __init__(self, first_name, last_name, email_address, contact_number, company_name, tax_certificate):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.email_address = email_address
+        self.contact_number = contact_number
+        self.company_name = company_name
+        self.tax_certificate = tax_certificate
 
     __mapper_args__ = {
         'polymorphic_identity': 'orginisation'
