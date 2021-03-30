@@ -16,4 +16,12 @@ class Product(Base):
     quantity = Column(Numeric(12), nullable=False)
     product_location = Column(String(50), nullable=False)
     product_status = Column(String(50), nullable=False)
-    product_catalog_id = Column(Integer, ForeignKey("Catalog.id"))
+    product_catalog_id = Column(Integer, ForeignKey(
+        'productCatalogue.product_catalogue_id'))
+
+
+class ProductCatalogue(Base):
+    __tablename__ = 'productCatalogue'
+
+    product_catalog_id = Column(Integer, primary_key=True)
+    seller_id = Column(Integer, ForeignKey('User.id'))
