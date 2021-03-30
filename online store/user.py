@@ -12,6 +12,7 @@ class User(Base):
     email_address = Column(String(120), unique=True, nullable=False)
     contact_number = Column(String(20), unique=True)
     type = Column(String(20))
+    # init method not required as declaritive base creates that for us
 
     __mapper_args__ = {
         'polymorphic_on': type,
