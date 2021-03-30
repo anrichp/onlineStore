@@ -33,6 +33,14 @@ class User(Base):
         session.commit()
         session.close()
 
+class Customer(User):
+    shipping_address = Column(String(50))
+    billing_address = Column(String(50))
+    payment_details = Column(String(50))
+
+    __mapper_args__ = {
+        'polymorphic_identity': 'seller'
+    }
 
 class Seller(User):
     store_name = Column(String(50))
