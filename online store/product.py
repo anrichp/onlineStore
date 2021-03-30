@@ -6,7 +6,7 @@ session = Session()
 
 
 class ProductCatalogue(Base):
-    __tablename__ = 'productCatalogue'
+    __tablename__ = 'ProductCatalogue'
 
     product_id = Column(Integer, primary_key=True)
     product_title = Column(String(50), nullable=False)
@@ -31,3 +31,10 @@ class Location(Base):
 
     location_id = Column(Integer, primary_key=True)
     product_location = Column(String(50), nullable=False)
+
+
+class Quantity(Base):
+    __tablename__ = 'Quantity'
+
+    quantity_id = Column(Integer, primary_key=True)
+    quantity = Column(Integer(20), nullable=False)
