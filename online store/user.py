@@ -78,6 +78,14 @@ class Individual(ThirdPartySeller):
     proof_of_identity = Column(String(50))
     proof_of_banking = Column(String(50))
 
+    def __init__(self, first_name, last_name, email_address, contact_number, proof_of_identity, proof_of_banking):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.email_address = email_address
+        self.contact_number = contact_number
+        self.proof_of_identity = proof_of_identity
+        self.proof_of_banking = proof_of_banking
+
     __mapper_args__ = {
         'polymorphic_identity': 'individual'
     }
