@@ -35,6 +35,7 @@ class User(Base):
 
 
 class Seller(User):
+    store_name = Column(String(50))
 
     __mapper_args__ = {
         'polymorphic_identity': 'seller'
@@ -56,6 +57,8 @@ class ThirdPartySeller(Seller):
 
 
 class Individual(ThirdPartySeller):
+    proof_of_identity = Column(String(50))
+    proof_of_banking = Column(String(50))
 
     __mapper_args__ = {
         'polymorphic_identity': 'individual'
@@ -63,6 +66,8 @@ class Individual(ThirdPartySeller):
 
 
 class Orginisation(ThirdPartySeller):
+    company_name = Column(String(50))
+    tax_certificate = Column(String(50))
 
     __mapper_args__ = {
         'polymorphic_identity': 'orginisation'
