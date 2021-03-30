@@ -11,9 +11,22 @@ class ProductCatalogue(Base):
     product_id = Column(Integer, primary_key=True)
     product_title = Column(String(50), nullable=False)
     product_description = Column(String(120), nullable=False)
-    product_price = Column(Numeric(12,2), nullable=False)
+    product_price = Column(Numeric(12, 2), nullable=False)
     seller_id = Column(Integer, ForeignKey('Seller.user_id'))
     category_id = Column(Integer, ForeignKey('Category.category_id'))
     location_id = Column(Integer, ForeignKey('Location.location_id'))
     status_id = Column(Integer, ForeignKey('Status.status_id'))
 
+
+class Category(Base):
+    __tablename__ = 'Category'
+
+    category_id = Column(Integer, primary_key=True)
+    category_name = Column(String(50), nullable=False)
+
+
+class Location(Base):
+    __tablename__ = 'Location'
+
+    location_id = Column(Integer, primary_key=True)
+    product_location = Column(String(50), nullable=False)
