@@ -1,4 +1,4 @@
-from user import Seller
+from user import User, Seller, Customer, WarehouseStaff
 from base import Session, engine, Base
 
 Base.metadata.create_all(engine)
