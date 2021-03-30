@@ -5,6 +5,7 @@ from base import Base
 
 class User(Base):
     __tablename__ = 'User'
+
     user_id = Column(Integer, primary_key=True)
     first_name = Column(String(50), nullable=False)
     last_name = Column(String(50), nullable=False)
