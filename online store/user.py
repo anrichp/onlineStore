@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Integer, Date
 
-from base import Base
+from base import Base, engine
 
 
 class User(Base):
@@ -44,3 +44,5 @@ class WarehouseStaff(User):
     __mapper_args__ = {
         'polymorphic_identity': 'warehouseStaff'
     }
+
+Base.metadata.create_all(engine)
