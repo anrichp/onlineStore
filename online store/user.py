@@ -39,6 +39,14 @@ class Customer(User):
     billing_address = Column(String(50))
     payment_details = Column(String(50))
 
+    def addToShoppingBasket(product):
+        basket_item = ShoppingBasket(product=product)
+        db.session.add(basket_item)
+        db.session.commit()
+
+    def searchProduct(search):
+        pass
+
     __mapper_args__ = {
         'polymorphic_identity': 'customer'
     }
