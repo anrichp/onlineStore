@@ -4,7 +4,7 @@ from base import Base, engine, Session
 
 
 class ShoppingBasket(Base):
-    __tablename__ = 'ShoppingBasket'
+    __tablename__ = 'shoppingBasket'
 
     basket_id = Column(Integer, primary_key=True)
     created_date = Column(DateTime, default=datetime.datetime.utcnow)
@@ -20,7 +20,7 @@ class ShoppingBasket(Base):
 
 
 class Order(Base):
-    __tablename__ = 'Order'
+    __tablename__ = 'order'
 
     order_id = Column(Integer, primary_key=True)
     customer_id = Column(Integer, ForeignKey('User.user_id'))
