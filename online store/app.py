@@ -1,4 +1,4 @@
-from user import Customer
+from user import Customer, User
 from shopping import Order
 from base import Session, engine, Base
 from sqlalchemy.orm import relationship
