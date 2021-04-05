@@ -6,3 +6,6 @@ engine = create_engine('sqlite:///:memory:', echo=True)
 Session = sessionmaker(bind=engine)
 
 Base = declarative_base()
+
+from shopping import *
+from users import *
