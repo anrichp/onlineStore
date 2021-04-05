@@ -7,8 +7,6 @@ engine = create_engine('postgresql://postgres:Z3ff3r@$zaq@localhost:5432/onlines
 
 Base = declarative_base()
 Base.metadata.create_all(engine)
+
 Session = sessionmaker(bind=engine)
 session = Session()
-
-from users import *
-from shopping import *
