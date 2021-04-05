@@ -1,7 +1,6 @@
 import datetime
 from sqlalchemy import Column, String, Integer, DateTime
 from base import Base, engine, Session
-from users import User
 
 session = Session()
 
