@@ -7,7 +7,8 @@ session = Session()
 
 class ShoppingBasket(Base):
     __tablename__ = 'ShoppingBasket'
-
+    
+    basket_id = Column(Integer, primary_key=True)
     created_date = Column(DateTime, default=datetime.datetime.utcnow)
 
     def checkout(self, products):
