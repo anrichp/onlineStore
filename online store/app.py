@@ -1,4 +1,5 @@
-from user import User, Customer
+from user import User
+from shopping import Order
 from base import Session, engine, Base
 
 Base.metadata.create_all(engine)
