@@ -1,7 +1,7 @@
 import datetime
 from sqlalchemy import Column, String, Integer, DateTime
 from base import Base, engine, Session
-from user import Customer
+from users import Customer
 
 session = Session()
 
