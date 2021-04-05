@@ -1,4 +1,5 @@
 import datetime
+from user import User, Customer
 from sqlalchemy import Column, String, Integer, DateTime
 from base import Base, engine, Session
 
