@@ -25,7 +25,7 @@ class Order(Base):
     __tablename__ = 'Order'
 
     order_id = Column(Integer, primary_key=True)
-    customer_id = Column(Integer, ForeignKey('User.user_id'))
+    customer_id = Column(Integer, ForeignKey('Customer.user_id'))
     date_placed = Column(DateTime, default=datetime.datetime.utcnow)
     total = Column(Numeric(12, 2), nullable=False)
     order_status = Column(String(10), nullable=False)
