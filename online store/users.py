@@ -36,7 +36,7 @@ class Customer(User):
     shipping_address = Column(String(50))
     billing_address = Column(String(50))
     payment_details = Column(String(50))
-    orders = relationship('Order', backref='User')
+    orders = relationship('Order', backref='customer')
 
     def addToShoppingBasket(product):
         basket_item = ShoppingBasket(product=product)
