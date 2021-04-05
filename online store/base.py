@@ -7,4 +7,3 @@ engine = create_engine('postgresql://postgres:Z3ff3r@$zaq@localhost:5432/onlines
 Base = declarative_base()
 
 Session = sessionmaker(bind=engine)
-session = Session()
