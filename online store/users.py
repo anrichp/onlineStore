@@ -1,7 +1,6 @@
 from sqlalchemy import Column, String, Integer, Date
 from sqlalchemy.orm import relationship
 from base import Base, engine, Session
-from shopping import Order
 
 session = Session()
 
