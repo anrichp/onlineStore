@@ -38,3 +38,5 @@ class Quantity(Base):
 
     quantity_id = Column(Integer, primary_key=True)
     quantity = Column(Integer(20), nullable=False)
+
+Base.metadata.create_all(engine)

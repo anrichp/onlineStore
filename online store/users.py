@@ -116,3 +116,5 @@ class Orginisation(ThirdPartySeller):
     __mapper_args__ = {
         'polymorphic_identity': 'orginisation'
     }
+
+Base.metadata.create_all(engine)
