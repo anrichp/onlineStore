@@ -9,5 +9,5 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-from users import *
-from shopping import *
+from users import User
+from shopping import Order
