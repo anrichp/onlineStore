@@ -7,8 +7,9 @@ session = Session()
 
 Base.metadata.create_all(engine, checkfirst=True)
 
-quintus = Customer('Anrich', 'Quintus', 'anrichp@gmail.com', '07907451834')
+Anrich = Customer('Anrich', 'Potgieter', 'anrichp@gmail.com', '07907451834')
+o1 = Order(user = Anrich, order_status= 'processing')
 
-session.add(quintus)
+session.add(o1)
 
 session.commit()
