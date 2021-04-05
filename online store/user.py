@@ -45,7 +45,7 @@ class Customer(User):
         db.session.commit()
 
     def searchProduct(search):
-        pass
+        products = Product.query.filter_by(product_title=search).all()
 
     __mapper_args__ = {
         'polymorphic_identity': 'customer'
