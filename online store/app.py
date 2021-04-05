@@ -1,5 +1,5 @@
 from shopping import Order
-from users import Customer
+from users import User, Customer
 from base import Session, engine, Base
 
 session = Session()
