@@ -1,5 +1,5 @@
-from user import Customer
 from shopping import Order
+from user import Customer
 from base import Session, engine, Base
 
 Base.metadata.create_all(engine)
