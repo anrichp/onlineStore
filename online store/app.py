@@ -1,6 +1,7 @@
 from base import Session, engine, Base
-from users import Customer
 from shopping import Order
+from users import Customer
+
 
 session = Session()
 
