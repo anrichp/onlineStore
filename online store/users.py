@@ -4,7 +4,7 @@ from base import Base, engine, Session
 
 
 class User(Base):
-    __tablename__ = 'Users'
+    __tablename__ = 'User'
 
     user_id = Column(Integer, primary_key=True)
     first_name = Column(String(50), nullable=False)
@@ -36,7 +36,7 @@ class Customer(User):
     shipping_address = Column(String(50))
     billing_address = Column(String(50))
     payment_details = Column(String(50))
-    orders = relationship('Order', backref='customer')
+    orders = relationship('Order', backref='User')
 
     def addToShoppingBasket(product):
         basket_item = ShoppingBasket(product=product)
