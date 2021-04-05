@@ -1,5 +1,6 @@
 from user import Customer
 from base import Session, engine, Base
+from sqlalchemy.orm import relationship
 
 Base.metadata.create_all(engine)
 
