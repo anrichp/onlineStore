@@ -3,7 +3,7 @@ from base import Base, engine, Session
 
 
 class ProductCatalogue(Base):
-    __tablename__ = 'ProductCatalogue'
+    __tablename__ = 'productCatalogue'
 
     product_id = Column(Integer, primary_key=True)
     product_title = Column(String(50), nullable=False)
@@ -17,21 +17,21 @@ class ProductCatalogue(Base):
 
 
 class Category(Base):
-    __tablename__ = 'Category'
+    __tablename__ = 'category'
 
     category_id = Column(Integer, primary_key=True)
     category_name = Column(String(50), nullable=False)
 
 
 class Location(Base):
-    __tablename__ = 'Location'
+    __tablename__ = 'location'
 
     location_id = Column(Integer, primary_key=True)
     product_location = Column(String(50), nullable=False)
 
 
 class Quantity(Base):
-    __tablename__ = 'Quantity'
+    __tablename__ = 'quantity'
 
     quantity_id = Column(Integer, primary_key=True)
     quantity = Column(Integer(20), nullable=False)
