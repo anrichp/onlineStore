@@ -4,7 +4,7 @@ from base import Base, engine, Session
 
 
 class User(Base):
-    __tablename__ = 'User'
+    __tablename__ = 'Users'
 
     user_id = Column(Integer, primary_key=True)
     first_name = Column(String(50), nullable=False)
