@@ -6,7 +6,7 @@ from base import Base, engine, Session
 class User(Base):
     __tablename__ = 'user'
 
-    user_id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True)
     first_name = Column(String(50), nullable=False)
     last_name = Column(String(50), nullable=False)
     email_address = Column(String(120), unique=True, nullable=False)

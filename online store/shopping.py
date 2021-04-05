@@ -26,4 +26,4 @@ class Order(Base):
     date_placed = Column(DateTime, default=datetime.datetime.utcnow)
     total = Column(Numeric(12, 2), nullable=False)
     order_status = Column(String(10), nullable=False)
-    customer_id = Column(Integer, ForeignKey('user.user_id'))
+    customer_id = Column(Integer, ForeignKey('user.id'))
