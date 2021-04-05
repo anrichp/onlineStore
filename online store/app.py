@@ -1,4 +1,4 @@
-from user import Customer
+from user import User, Customer
 from shopping import Order
 from base import Session, engine, Base
 
