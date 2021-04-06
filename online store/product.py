@@ -22,6 +22,13 @@ class ProductCatalogue(Base):
     seller_id = Column(Integer, ForeignKey('user.user_id'))
     products = relationship('Product', backref='product')
 
+    @classmethod
+    def createProduct(cls, **kw):
+        obj = cls(**kw)
+        session.add(obj)
+        session.commit()
+        session.close()
+
 
 class Category(Base):
     __tablename__ = 'category'
