@@ -1,6 +1,18 @@
-from sqlalchemy import Column, String, Integer, Date
+from sqlalchemy import Column, String, Integer, Date, ForeignKey
 from sqlalchemy.orm import relationship
 from base import Base, engine, Session
+
+
+class Product(Base):
+    __tablename__ = 'product'
+
+    product_id = Column(Integer, primary_key=True)
+    product_title = Column(String(50), nullable=False)
+    product_description = Column(String(120), nullable=False)
+    product_price = Column(Numeric(12, 2), nullable=False)
+    product_quanity = Column(Numeric(100))
+    product_location = Column(Integer, ForeignKey('location.location_id'))
+    product_status = Column(Integer, ForeignKey(('status.tatus_id')))
 
 
 class ProductCatalogue(Base):
@@ -30,3 +42,10 @@ class Quantity(Base):
 
     quantity_id = Column(Integer, primary_key=True)
     quantity = Column(Integer(20), nullable=False)
+
+
+class ProductStatus(Base):
+    __tablename__ = 'productStatus'
+
+    status_id = Column(Integery, primary_key=True)
+    product_status = Column(String(50), nullable=False)
