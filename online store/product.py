@@ -12,7 +12,7 @@ class Product(Base):
     product_price = Column(Numeric(12, 2), nullable=False)
     product_quanity = Column(Integer, ForeignKey('quantity.quantity_id'))
     product_location = Column(Integer, ForeignKey('location.location_id'))
-    product_status = Column(Integer, ForeignKey(('status.tatus_id')))
+    product_status = Column(Integer, ForeignKey(('productStatus.status_id')))
 
 
 class ProductCatalogue(Base):
@@ -47,5 +47,5 @@ class Quantity(Base):
 class ProductStatus(Base):
     __tablename__ = 'productStatus'
 
-    status_id = Column(Integery, primary_key=True)
+    status_id = Column(Integer, primary_key=True)
     product_status = Column(String(50), nullable=False)
