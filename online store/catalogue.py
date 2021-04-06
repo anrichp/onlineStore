@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 from base import Base, engine, Session
 
 
-product_productCatlogue_association = Table(
+product_productCatalogue_association = Table(
     'catalogue_product', Base.metadata,
     Column('catalogue_id', Integer, ForeignKey('productCatalogue.catalogue_id')),
     Column('product_id', Integer, ForeignKey('product.product_id'))
@@ -31,7 +31,7 @@ class ProductCatalogue(Base):
 
     # Relationships
     user = relationship('User', backref='productCatalogue')
-    products = relationship('Product', secondary=product_productCatlogue_association)
+    products = relationship('Product', secondary=product_productCatalogue_association)
 
     @classmethod
     def createProduct(cls, **kw):
