@@ -41,7 +41,7 @@ class Quantity(Base):
     __tablename__ = 'quantity'
 
     quantity_id = Column(Integer, primary_key=True)
-    quantity = Column(Integer(20), nullable=False)
+    quantity = Column(Numeric(20), nullable=False)
 
 
 class ProductStatus(Base):
