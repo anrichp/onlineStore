@@ -3,12 +3,6 @@ from sqlalchemy.orm import relationship
 from base import Base, engine, Session
 
 
-product_productCatalogue_association = Table(
-    'catalogue_product', Base.metadata,
-    Column('catalogue_id', Integer, ForeignKey('productCatalogue.catalogue_id')),
-    Column('product_id', Integer, ForeignKey('product.product_id'))
-)
-
 class Product(Base):
     __tablename__ = 'product'
 
@@ -16,8 +10,9 @@ class Product(Base):
     product_title = Column(String(50), nullable=False)
     product_description = Column(String(120), nullable=False)
     product_price = Column(Numeric(12, 2), nullable=False)
+    catalogue_id = Column(Integer, ForeignKey('productCatalogue.catalogue_id'))
 
-    product_catalogue = relationship('productCatalogue')
+    # product_catalogue = relationship('productCatalogue')
     # product_quantity = Column(Integer, ForeignKey('quantity.quantity_id'))
     # product_location = Column(Integer, ForeignKey('location.location_id'))
     # product_status = Column(Integer, ForeignKey('productStatus.status_id'))
@@ -31,7 +26,7 @@ class ProductCatalogue(Base):
 
     # Relationships
     user = relationship('User', backref='productCatalogue')
-    products = relationship('Product', secondary=product_productCatalogue_association)
+    products = relationship('Product')
 
     @classmethod
     def createProduct(cls, **kw):
