@@ -20,7 +20,7 @@ class ProductCatalogue(Base):
 
     catalogue_id = Column(Integer, primary_key=True)
     seller_id = Column(Integer, ForeignKey('user.user_id'))
-    products = relationship('Product', backref='productCatalogue')
+    products = relationship('Product', backref='product')
 
 
 class Category(Base):
