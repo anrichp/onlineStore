@@ -1,5 +1,6 @@
 import datetime
 from sqlalchemy import Column, String, Integer, DateTime, Numeric, ForeignKey
+from sqlalchemy.orm import relationship
 from base import Base, engine, Session
 
 
@@ -8,6 +9,8 @@ class ShoppingBasket(Base):
 
     basket_id = Column(Integer, primary_key=True)
     created_date = Column(DateTime, default=datetime.datetime.utcnow)
+    products = relationship('Product', backref='shoppingBasket')
+    total_cost = Column(Numeric(12,2), nullable=False)
 
     def checkout(self, products):
         pass
