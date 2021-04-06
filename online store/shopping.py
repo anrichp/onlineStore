@@ -9,7 +9,7 @@ class ShoppingBasket(Base):
 
     basket_id = Column(Integer, primary_key=True)
     created_date = Column(DateTime, default=datetime.datetime.utcnow)
-    products = relationship('Product', backref='shoppingBasket')
+    # products = relationship('Product', backref='shoppingBasket')
     total_cost = Column(Numeric(12,2), nullable=False)
 
     def checkout(self, products):
