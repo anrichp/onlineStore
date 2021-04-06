@@ -26,7 +26,7 @@ class ProductCatalogue(Base):
 
     # Relationships
     user = relationship('User', backref='productCatalogue')
-    products = relationship('Product')
+    products = relationship('product')
 
     @classmethod
     def createProduct(cls, **kw):
