@@ -20,7 +20,8 @@ class ProductCatalogue(Base):
 
     catalogue_id = Column(Integer, primary_key=True)
     seller_id = Column(Integer, ForeignKey('user.user_id'))
-    seller = relationship('Seller', back_populates='productCatalogue')
+
+    user = relationship('User', backref='productCatalogue')
 
     @classmethod
     def createProduct(cls, **kw):
