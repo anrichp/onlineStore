@@ -10,7 +10,7 @@ class Product(Base):
     product_title = Column(String(50), nullable=False)
     product_description = Column(String(120), nullable=False)
     product_price = Column(Numeric(12, 2), nullable=False)
-    product_quanity = Column(Integer, ForeignKey('quantity.quantity_id'))
+    product_quantity = Column(Integer, ForeignKey('quantity.quantity_id'))
     product_location = Column(Integer, ForeignKey('location.location_id'))
     product_status = Column(Integer, ForeignKey(('productStatus.status_id')))
 
@@ -20,7 +20,7 @@ class ProductCatalogue(Base):
 
     catalogue_id = Column(Integer, primary_key=True)
     seller_id = Column(Integer, ForeignKey('user.user_id'))
-    products = relationship('Product', backref='product')
+    # products = relationship('Product', backref='product')
 
     @classmethod
     def createProduct(cls, **kw):
