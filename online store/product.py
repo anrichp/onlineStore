@@ -10,7 +10,7 @@ class Product(Base):
     product_title = Column(String(50), nullable=False)
     product_description = Column(String(120), nullable=False)
     product_price = Column(Numeric(12, 2), nullable=False)
-    product_quanity = Column(Numeric(100))
+    product_quanity = Column(Integer, ForeignKey('quantity.quantity_id'))
     product_location = Column(Integer, ForeignKey('location.location_id'))
     product_status = Column(Integer, ForeignKey(('status.tatus_id')))
 
