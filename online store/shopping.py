@@ -20,8 +20,9 @@ class ShoppingBasket(Base):
     def update(self, products):
         pass
 
-    def delete(self, products):
-        pass
+    def delete(shopping_basket):
+        session.delete(shopping_basket)
+        session.commit()
 
 
 class Order(Base):
