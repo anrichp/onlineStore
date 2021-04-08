@@ -15,11 +15,6 @@ class Product(Base):
     product_description = Column(String(120), nullable=False)
     product_price = Column(Numeric(12, 2), nullable=False)
 
-    # product_catalogue = relationship('productCatalogue')
-    # product_quantity = Column(Integer, ForeignKey('quantity.quantity_id'))
-    # product_location = Column(Integer, ForeignKey('location.location_id'))
-    # product_status = Column(Integer, ForeignKey('productStatus.status_id'))
-
 
 class ProductCatalogue(Base):
     __tablename__ = 'productCatalogue'
