@@ -28,7 +28,8 @@ class ProductCatalogue(Base):
     seller_id = Column(Integer, ForeignKey('user.user_id'))
 
     # Relationships
-    user = relationship('User', backref='productCatalogue')
+    user = relationship('User', backref='productCatalogue',
+                        foreign_keys=seller_id)
     products = relationship("Product", secondary=association_table)
 
     @classmethod
