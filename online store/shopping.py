@@ -8,10 +8,13 @@ class ShoppingBasket(Base):
     __tablename__ = 'shoppingBasket'
 
     basket_id = Column(Integer, primary_key=True)
+    customer_user_id = Column(Integer, ForeignKey('user.user_id'))
     created_date = Column(DateTime, default=datetime.datetime.utcnow)
-    total_cost = Column(Numeric(12,2), nullable=False)
+    quantity = Column(Numeric(10))
+    total_cost = Column(Numeric(12, 2), nullable=False)
 
-    #Relationship
+    # Relationships
+    user = relationship('User', backref='shoppingBasket', foreign_keys=customer_user_id)
     products = relationship('Product', backref='shoppingBasket')
 
     def checkout(self, products):
