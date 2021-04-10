@@ -3,7 +3,7 @@ from flask import current_app, request, url_for
 from . import db
 
 # User Models
-class User(Base):
+class User(db.Model):
     __tablename__ = 'user'
 
     user_id = Column(Integer, primary_key=True)
@@ -126,7 +126,7 @@ association_table = Table('product_catalogue', Base.metadata, Column('productCat
     'productCatalogue.catalogue_id')), Column('product_id', Integer, ForeignKey('product.product_id')))
 
 
-class Product(Base):
+class Product(db.Model):
     __tablename__ = 'product'
 
     product_id = Column(Integer, primary_key=True)
@@ -150,35 +150,35 @@ class Product(Base):
     productcatalogue = relationship(
         'productCatalogue', foreign_keys=productcatalogue_catalogue_id)
 
-class Category(Base):
+class Category(db.Model):
     __tablename__ = 'category'
 
     category_id = Column(Integer, primary_key=True)
     category_name = Column(String(50), nullable=False)
 
 
-class Location(Base):
+class Location(db.Model):
     __tablename__ = 'location'
 
     location_id = Column(Integer, primary_key=True)
     product_location = Column(String(50), nullable=False)
 
 
-class Quantity(Base):
+class Quantity(db.Model):
     __tablename__ = 'quantity'
 
     quantity_id = Column(Integer, primary_key=True)
     quantity = Column(Numeric(20), nullable=False)
 
 
-class ProductStatus(Base):
+class ProductStatus(db.Model):
     __tablename__ = 'productStatus'
 
     status_id = Column(Integer, primary_key=True)
     product_status = Column(String(50), nullable=False)
 
 # Product Catalogue Model
-class ProductCatalogue(Base):
+class ProductCatalogue(db.Model):
     __tablename__ = 'productCatalogue'
 
     catalogue_id = Column(Integer, primary_key=True)
@@ -197,7 +197,7 @@ class ProductCatalogue(Base):
         session.close()
 
 # Shopping Basket Model
-class ShoppingBasket(Base):
+class ShoppingBasket(db.Model):
     __tablename__ = 'shoppingBasket'
 
     basket_id = Column(Integer, primary_key=True)
@@ -221,7 +221,7 @@ class ShoppingBasket(Base):
         session.commit()
 
 # Order Model
-class Order(Base):
+class Order(db.Model):
     __tablename__ = 'order'
 
     order_id = Column(Integer, primary_key=True)
