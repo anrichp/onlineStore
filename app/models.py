@@ -188,7 +188,7 @@ class ShoppingBasket(db.Model):
     created_date = db.Column(db.DateTime, default=datetime.utcnow)
     quantity = db.Column(db.Numeric(10))
     product_product_id = db.Column(
-        db.Integer, db.ForeignKey('Product.product_id'))
+        db.Integer, db.ForeignKey('product.product_id'))
     total_cost = db.Column(db.Numeric(12, 2), nullable=False)
 
     # Relationships
