@@ -270,4 +270,9 @@ class Payment(db.Model):
 
     # Relationships
     order = db.relationship('Order', foreign_keys=order_order_id)
-    paymentmethod = db.relationship('PaymentMethod', foreign_keys=paymentmethod_method_id)
+    paymentmethod = db.relationship('Paymentmethod', foreign_keys=paymentmethod_method_id)
+
+class Paymentmethod(db.Model):
+    __tablename__='paymentMethod'
+    method_id = db.Column(db.Integer, primary_key=True)
+    payment_type = db.Column(db.String(20), nullable=False)
