@@ -9,18 +9,19 @@ from .. import db
 from ..models import Product, Category, Location, ProductStatus, ProductCatalogue
 
 
+def categoryQuery():
+    return db.session.query(Category)
+
+def locationQuery():
+    return db.sesson.query(Location)
+
+def productStatusQuery():
+    return db.session.query(ProductStatus)
+
+def productStatusQuery():
+    return db.session.query(ProductCatalogue)
+
 class NewProduct(FlaskForm):
-    def categoryQuery():
-        return db.session.query(Category)
-
-    def locationQuery():
-        return db.sesson.query(Location)
-
-    def productStatusQuery():
-        return db.session.query(ProductStatus)
-
-    def productStatusQuery():
-        return db.session.query(ProductCatalogue)
 
     product_catalogue = QuerySelectField(
         get_label='name', query_factory=productStatusQuery())
