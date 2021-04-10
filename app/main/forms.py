@@ -23,7 +23,7 @@ class NewProduct(FlaskForm):
         return db.session.query(ProductCatalogue)
 
     product_catalogue = QuerySelectField(
-        get_label='catalogue_id', query_factory=productStatusQuery())
+        get_label='catalogue_id', query_factory=productStatusQuery)
     product_name = StringField(
         'Name', validators=[Length(0, 80), InputRequired()])
     product_description = StringField('Description', validators=[
