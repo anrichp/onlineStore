@@ -15,7 +15,7 @@ def index():
 def newProduct():
     form = NewProduct()
 
-    product = Product(product_title=form.product_name.data, product_description=form.product_description.data, product_price=form.product_price.data, category_category_id=form.category.data,
+    product = Product(product_title=form.product_name.data, product_description=form.product_description.data, Category=Category, product_price=form.product_price.data, category_category_id=form.category.data,
                       location_location_id=form.locaton.data, quantity_quantity_id=form.quantity.data, productstatus_status_id=form.status.data, productcatalogue_catalogue_id=form.product_catalogue)
 
     db.session.add(product)
