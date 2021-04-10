@@ -3,7 +3,8 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
-    pass
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    PROJECT_ID = 'onlineStore'
 
     @staticmethod
     def init_app(app):
@@ -31,6 +32,6 @@ config = {
     'development': DevelopmentConfig,
     'testing': TestingConfig,
     'production': ProductionConfig,
-    
+
     'default': DevelopmentConfig
 }
