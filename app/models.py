@@ -254,3 +254,20 @@ class Orderstatus(db.Model):
     __tablename__ = 'orderStatus'
     status_id = db.Column(db.Integer, primary_key=True)
     status = Column(db.String(20), nullable=False)
+
+# Payment Model
+
+
+class Payment(db.Model):
+    __tablename__ = 'paymentMethod'
+    payment_id = db.Column(db.Integer, primary_key=True)
+    order_order_id = db.Column(
+        db.Integer, db.ForeignKey('paymentMethod.method_id'))
+    paymentmethod_method_id = db.Column(
+        db.Integer, db.ForeignKey('paymentMethod.method_id'))
+    status = db.Column(db.String(20), nullable=False)
+    total = db.Column(db.Numeric(12, 2))
+
+    # Relationships
+    order = db.relationship('Order', foreign_keys=order_order_id)
+    paymentmethod = db.relationship('PaymentMethod', foreign_keys=paymentmethod_method_id)
