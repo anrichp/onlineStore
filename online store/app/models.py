@@ -225,7 +225,7 @@ class Order(db.Model):
     __tablename__ = 'order'
 
     order_id = db.Column(db.Integer, primary_key=True)
-    date_placed = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    date_placed = db.Column(db.DateTime, default=datetime.utcnow)
     # total = Column(Numeric(12, 2), nullable=False)
     order_status = db.Column(db.String(10), nullable=False)
     customer_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
