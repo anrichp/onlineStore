@@ -38,7 +38,7 @@ class Customer(User):
     shipping_address = db.Column(db.String(50))
     billing_address = db.Column(db.String(50))
     payment_details = db.Column(db.String(50))
-    orders = db.relationship('Order', backref='user')
+    # orders = db.relationship('Order', backref='user')
 
     __mapper_args__ = {
         'polymorphic_identity': 'customer'
@@ -140,9 +140,9 @@ class Product(db.Model):
         db.Integer, db.ForeignKey('productCatalogue.catalogue_id'))
 
     # Relationships
-    category = db.relationship('category', foreign_keys=category_category_id)
-    location = db.relationship('location', foreign_keys=location_location_id)
-    quantity = db.relationship('quantity', foreign_keys=quantity_quantity_id)
+    category = db.relationship('Category', foreign_keys=category_category_id)
+    location = db.relationship('Location', foreign_keys=location_location_id)
+    quantity = db.relationship('Quantity', foreign_keys=quantity_quantity_id)
     productstatus = db.relationship(
         'productStatus', foreign_keys=productstatus_status_id)
     productcatalogue = db.relationship(
