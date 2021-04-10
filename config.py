@@ -5,12 +5,8 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
     CATALOG_ADMIN = os.environ.get('CATALOG_ADMIN')
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SECRET_KEY = 'secret'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False'
     PROJECT_ID = 'item-catalog-233714'
-    GOOGLE_OAUTH2_CLIENT_ID =\
-        '788905638737-jpsqh29pcmbv316qpvdhrcopvo779r9o.apps.googleusercontent.com'
-    GOOGLE_OAUTH2_CLIENT_SECRET = 'EQ8zsd1CpwzAyt_yotBO2-Bo'
 
     @staticmethod
     def init_app(app):
