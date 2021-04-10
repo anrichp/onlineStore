@@ -259,7 +259,7 @@ class Orderstatus(db.Model):
 
 
 class Payment(db.Model):
-    __tablename__ = 'paymentMethod'
+    __tablename__ = 'payment'
     payment_id = db.Column(db.Integer, primary_key=True)
     order_order_id = db.Column(
         db.Integer, db.ForeignKey('paymentMethod.method_id'))
