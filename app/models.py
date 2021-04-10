@@ -160,7 +160,7 @@ class Quantity(db.Model):
     __tablename__ = 'quantity'
 
     quantity_id = db.Column(db.Integer, primary_key=True)
-    quantity = db.Column(db.Numeric(12,0), nullable=False)
+    quantity = db.Column(db.Numeric(12, 0), nullable=False)
 
 
 class ProductStatus(db.Model):
@@ -183,12 +183,6 @@ class ProductCatalogue(db.Model):
                            foreign_keys=seller_id)
     products = db.relationship('Product', secondary=association_table)
 
-    @ classmethod
-    def createProduct(cls, **kw):
-        obj = cls(**kw)
-        session.add(obj)
-        session.commit()
-        session.close()
 
 # Shopping Basket Model
 
@@ -255,9 +249,11 @@ class Payment(db.Model):
 
     # Relationships
     order = db.relationship('Order', foreign_keys=order_order_id)
-    paymentmethod = db.relationship('Paymentmethod', foreign_keys=paymentmethod_method_id)
+    paymentmethod = db.relationship(
+        'Paymentmethod', foreign_keys=paymentmethod_method_id)
+
 
 class Paymentmethod(db.Model):
-    __tablename__='paymentMethod'
+    __tablename__ = 'paymentMethod'
     method_id = db.Column(db.Integer, primary_key=True)
     payment_type = db.Column(db.String(20), nullable=False)
