@@ -204,11 +204,12 @@ class ShoppingBasket(db.Model):
     customer_user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
     created_date = db.Column(db.DateTime, default=datetime.utcnow)
     quantity = db.Column(db.Numeric(10))
+    product_product_id = db.Column(db.Integer, db.ForeignKey('Product.product_id'))
     total_cost = db.Column(db.Numeric(12, 2), nullable=False)
 
     # Relationships
     user = db.relationship('User', backref='shoppingBasket', foreign_keys=customer_user_id)
-    products = db.relationship('Product', backref='shoppingBasket')
+    products = db.relationship('Product', backref='shoppingBasket', foreign_keys=product_product_id)
 
     def checkout(self, products):
         pass
