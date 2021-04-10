@@ -135,7 +135,7 @@ class Product(db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
     product_title = db.Column(db.String(50), nullable=False)
     product_description = db.Column(db.String(120), nullable=False)
-    product_price = db.Column(db.Float(12, 2), nullable=False)
+    product_price = db.Column(db.Numeric(12, 2), nullable=False)
     category_category_id = db.Column(
         db.Integer, db.ForeignKey('category.category_id'))
     location_location_id = db.Column(
@@ -175,7 +175,7 @@ class Quantity(db.Model):
     __tablename__ = 'quantity'
 
     quantity_id = db.Column(db.Integer, primary_key=True)
-    quantity = db.Column(db.Float(12,0), nullable=False)
+    quantity = db.Column(db.Numeric(12,0), nullable=False)
 
 
 class ProductStatus(db.Model):
@@ -214,10 +214,10 @@ class ShoppingBasket(db.Model):
     basket_id = db.Column(db.Integer, primary_key=True)
     customer_user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
     created_date = db.Column(db.DateTime, default=datetime.utcnow)
-    quantity = db.Column(db.Float(10))
+    quantity = db.Column(db.Numeric(10))
     product_product_id = db.Column(
         db.Integer, db.ForeignKey('Product.product_id'))
-    total_cost = db.Column(db.Float(12, 2), nullable=False)
+    total_cost = db.Column(db.Numeric(12, 2), nullable=False)
 
     # Relationships
     user = db.relationship('User', backref='shoppingBasket',
@@ -245,7 +245,7 @@ class Order(db.Model):
     shopping_basket_id = db.Column(
         db.Integer, db.ForeignKey('shoppingBasket.basket_id'))
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
-    total = db.Column(Float(12, 2), nullable=False)
+    total = db.Column(db.Numeric(12, 2), nullable=False)
     order_status_id = db.Column(
         db.Integer, db.ForeignKey('orderStatus.status_id'))
 
@@ -266,7 +266,7 @@ class Payment(db.Model):
     paymentmethod_method_id = db.Column(
         db.Integer, db.ForeignKey('paymentMethod.method_id'))
     status = db.Column(db.String(20), nullable=False)
-    total = db.Column(db.Float(12, 2))
+    total = db.Column(db.Numeric(12, 2))
 
     # Relationships
     order = db.relationship('Order', foreign_keys=order_order_id)
