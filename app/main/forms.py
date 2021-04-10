@@ -30,10 +30,10 @@ class NewProduct(FlaskForm):
                                       Length(0, 250), InputRequired()])
     product_price = IntegerField(
         'Price', validators=[NumberRange(min=0, max=10000), InputRequired()])
-    category = QuerySelectField(get_label='category_name', query_factory=categoryQuery)
+    category = QuerySelectField(get_label='category_id', query_factory=categoryQuery)
     quantity = IntegerField('Quantity', validators=[
                             NumberRange(min=0, max=100), InputRequired()])
-    location = QuerySelectField(get_label='product_location', query_factory=locationQuery)
+    location = QuerySelectField(get_label='location_id', query_factory=locationQuery)
     status = QuerySelectField(
-        get_label='product_status', query_factory=productStatusQuery)
+        get_label='status_id', query_factory=productStatusQuery)
     submit = SubmitField('Submit')
