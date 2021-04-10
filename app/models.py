@@ -214,8 +214,8 @@ class ShoppingBasket(db.Model):
     # Relationships
     user = db.relationship('User', backref='shoppingBasket',
                            foreign_keys=customer_user_id)
-    products = db.relationship(
-        'Product', backref='shoppingBasket', foreign_keys=product_product_id)
+    # products = db.relationship(
+    #     'Product', backref='shoppingBasket', foreign_keys=product_product_id)
 
     def checkout(self, products):
         pass
