@@ -5,6 +5,7 @@ from wtforms.validators import DataRequired, Length, NumberRange, Email, Regexp
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms import ValidationError
 from flask_pagedown.fields import PageDownField
+from .. import db
 from ..models import Product
 
 
