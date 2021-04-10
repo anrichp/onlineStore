@@ -56,13 +56,6 @@ class WarehouseStaff(User):
 class Seller(User):
     store_name = db.Column(db.String(50))
 
-    @classmethod
-    def createCatalogue(cls, **kw):
-        obj = cls(**kw)
-        session.add(obj)
-        session.commit()
-        session.close()
-
     __mapper_args__ = {
         'polymorphic_identity': 'seller'
     }
