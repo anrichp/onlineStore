@@ -204,16 +204,6 @@ class ShoppingBasket(db.Model):
     # products = db.relationship(
     #     'Product', backref='shoppingBasket', foreign_keys=product_product_id)
 
-    def checkout(self, products):
-        pass
-
-    def update(self, products):
-        pass
-
-    def delete(shopping_basket):
-        session.delete(shopping_basket)
-        session.commit()
-
 # Order Model
 
 
