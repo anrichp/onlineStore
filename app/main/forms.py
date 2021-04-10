@@ -6,7 +6,7 @@ from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms import ValidationError
 from flask_pagedown.fields import PageDownField
 from .. import db
-from ..models import Product
+from ..models import Product, Category, Loction, ProductStatus, ProductCatalogue
 
 
 class NewProduct(FlaskForm):
@@ -22,12 +22,18 @@ class NewProduct(FlaskForm):
     def productStatusQuery():
         return db.session.query(ProductCatalogue)
 
-    product_catalogue = QuerySelectField(get_label='name', query_factory=productStatusQuery())
-    product_name  = StringField('Name', validators=[Length(0,80), InputRequired()])
-    product_description = StringField('Description', validators=[Length(0, 250), InputRequired()])
-    product_price = IntegerField('Price', validators=[NumberRange(min=0, max=10000), InputRequired()])
+    product_catalogue = QuerySelectField(
+        get_label='name', query_factory=productStatusQuery())
+    product_name = StringField(
+        'Name', validators=[Length(0, 80), InputRequired()])
+    product_description = StringField('Description', validators=[
+                                      Length(0, 250), InputRequired()])
+    product_price = IntegerField(
+        'Price', validators=[NumberRange(min=0, max=10000), InputRequired()])
     category = QuerySelectField(get_label='name', query_factory=categoryQuery)
-    quantity = IntegerField('Quantity', validators=[NumberRange(min=0, max=100), InputRequired()])
+    quantity = IntegerField('Quantity', validators=[
+                            NumberRange(min=0, max=100), InputRequired()])
     locaton = QuerySelectField(get_label='name', query_factory=locationQuery)
-    status = QuerySelectField(get_label='name', query_factory=productStatusQuery())
+    status = QuerySelectField(
+        get_label='name', query_factory=productStatusQuery())
     submit - SubmitField('Submit')
