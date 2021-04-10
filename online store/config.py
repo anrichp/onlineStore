@@ -3,8 +3,12 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
+    class Config:
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
+    FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
+    SSL_REDIRECT = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    PROJECT_ID = 'onlineStore'
+    SQLALCHEMY_RECORD_QUERIES = True
 
     @staticmethod
     def init_app(app):
