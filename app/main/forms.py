@@ -14,7 +14,7 @@ class NewProduct(FlaskForm):
         return db.session.query(Category)
 
     def locationQuery():
-        return db.sesson.query(Location)
+        return db.session.query(Location)
 
     def productStatusQuery():
         return db.session.query(ProductStatus)
