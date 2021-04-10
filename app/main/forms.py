@@ -35,5 +35,5 @@ class NewProduct(FlaskForm):
                             NumberRange(min=0, max=100), InputRequired()])
     locaton = QuerySelectField(get_label='product_location', query_factory=locationQuery)
     status = QuerySelectField(
-        get_label='status_id', query_factory=productStatusQuery)
+        get_label='product_status', query_factory=productStatusQuery())
     submit = SubmitField('Submit')
