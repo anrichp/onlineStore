@@ -1,13 +1,13 @@
 import os
 from app import create_app, db
-from app.models import Item, Category
+from app.models import User, Product, ProductCatalogue, ShoppingBasket, Order
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 
 
-# @app.shell_context_processor
-# def make_shell_context():
-#     return dict(db=db, Item=Item, Category=Category)
+@app.shell_context_processor
+def make_shell_context():
+    return dict(db=db, User=User, Product=Product, ProductCatalogue=ProductCatalogue, ShoppingBasket=ShoppingBasket, Order=Order)
 
 
 if __name__ == '__main__':
