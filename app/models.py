@@ -236,6 +236,8 @@ class ShoppingBasket(db.Model):
         session.commit()
 
 # Order Model
+
+
 class Order(db.Model):
     __tablename__ = 'order'
 
@@ -246,3 +248,9 @@ class Order(db.Model):
     total = db.Column(Numeric(12, 2), nullable=False)
     order_status_id = db.Column(
         db.Integer, db.ForeignKey('orderStatus.status_id'))
+
+
+class Orderstatus(db.Model):
+    __tablename__ = 'orderStatus'
+    status_id = db.Column(db.Integer, primary_key=True)
+    status = Column(db.String(20), nullable=False)
