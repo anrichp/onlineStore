@@ -19,6 +19,6 @@ def newProduct():
                       location_location_id=form.locaton.data, quantity_quantity_id=form.quantity.data, productstatus_status_id=form.status.data, productcatalogue_catalogue_id=form.product_catalogue)
 
     db.session.add(product)
-    db.commit()
+    db.session.commit()
 
     return render_template('newProduct.html', form=form)
