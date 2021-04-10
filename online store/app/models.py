@@ -202,7 +202,7 @@ class ShoppingBasket(db.Model):
 
     basket_id = db.Column(db.Integer, primary_key=True)
     customer_user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
-    created_date = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    created_date = db.Column(db.DateTime, default=datetime.utcnow)
     quantity = db.Column(db.Numeric(10))
     total_cost = db.Column(db.Numeric(12, 2), nullable=False)
 
