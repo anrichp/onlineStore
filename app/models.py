@@ -40,14 +40,6 @@ class Customer(User):
     payment_details = db.Column(db.String(50))
     orders = db.relationship('Order', backref='user')
 
-    def addToShoppingBasket(product):
-        basket_item = ShoppingBasket(product=product)
-        db.session.add(basket_item)
-        db.session.commit()
-
-    def searchProduct(search):
-        products = Product.query.filter_by(product_title=search).all()
-
     __mapper_args__ = {
         'polymorphic_identity': 'customer'
     }
