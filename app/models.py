@@ -3,6 +3,8 @@ from flask import current_app, request, url_for
 from . import db
 
 # User Models
+
+
 class User(db.Model):
     __tablename__ = 'user'
 
@@ -121,6 +123,7 @@ class Orginisation(ThirdPartySeller):
         'polymorphic_identity': 'orginisation'
     }
 
+
 #  Product Model
 association_table = db.Table('product_catalogue', db.metadata, db.Column('productCatalogue_id', db.Integer, db.ForeignKey(
     'productCatalogue.catalogue_id')), db.Column('product_id', db.Integer, db.ForeignKey('product.product_id')))
@@ -133,9 +136,12 @@ class Product(db.Model):
     product_title = db.Column(db.String(50), nullable=False)
     product_description = db.Column(db.String(120), nullable=False)
     product_price = db.Column(db.Numeric(12, 2), nullable=False)
-    category_category_id = db.Column(db.Integer, db.ForeignKey('category.category_id'))
-    location_location_id = db.Column(db.Integer, db.ForeignKey('location.location_id'))
-    quantity_quantity_id = db.Column(db.Integer, db.ForeignKey('quantity.quantity_id'))
+    category_category_id = db.Column(
+        db.Integer, db.ForeignKey('category.category_id'))
+    location_location_id = db.Column(
+        db.Integer, db.ForeignKey('location.location_id'))
+    quantity_quantity_id = db.Column(
+        db.Integer, db.ForeignKey('quantity.quantity_id'))
     productstatus_status_id = db.Column(
         db.Integer, db.ForeignKey('productStatus.status_id'))
     productcatalogue_catalogue_id = db.Column(
@@ -149,6 +155,7 @@ class Product(db.Model):
         'productStatus', foreign_keys=productstatus_status_id)
     productcatalogue = db.relationship(
         'productCatalogue', foreign_keys=productcatalogue_catalogue_id)
+
 
 class Category(db.Model):
     __tablename__ = 'category'
@@ -178,6 +185,8 @@ class ProductStatus(db.Model):
     product_status = db.Column(db.String(50), nullable=False)
 
 # Product Catalogue Model
+
+
 class ProductCatalogue(db.Model):
     __tablename__ = 'productCatalogue'
 
@@ -186,7 +195,7 @@ class ProductCatalogue(db.Model):
 
     # Relationships
     user = db.relationship('User', backref='productCatalogue',
-                        foreign_keys=seller_id)
+                           foreign_keys=seller_id)
     products = db.relationship('Product', secondary=association_table)
 
     @ classmethod
@@ -197,6 +206,8 @@ class ProductCatalogue(db.Model):
         session.close()
 
 # Shopping Basket Model
+
+
 class ShoppingBasket(db.Model):
     __tablename__ = 'shoppingBasket'
 
@@ -204,12 +215,15 @@ class ShoppingBasket(db.Model):
     customer_user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
     created_date = db.Column(db.DateTime, default=datetime.utcnow)
     quantity = db.Column(db.Numeric(10))
-    product_product_id = db.Column(db.Integer, db.ForeignKey('Product.product_id'))
+    product_product_id = db.Column(
+        db.Integer, db.ForeignKey('Product.product_id'))
     total_cost = db.Column(db.Numeric(12, 2), nullable=False)
 
     # Relationships
-    user = db.relationship('User', backref='shoppingBasket', foreign_keys=customer_user_id)
-    products = db.relationship('Product', backref='shoppingBasket', foreign_keys=product_product_id)
+    user = db.relationship('User', backref='shoppingBasket',
+                           foreign_keys=customer_user_id)
+    products = db.relationship(
+        'Product', backref='shoppingBasket', foreign_keys=product_product_id)
 
     def checkout(self, products):
         pass
@@ -226,7 +240,9 @@ class Order(db.Model):
     __tablename__ = 'order'
 
     order_id = db.Column(db.Integer, primary_key=True)
-    date_placed = db.Column(db.DateTime, default=datetime.utcnow)
-    # total = Column(Numeric(12, 2), nullable=False)
-    order_status = db.Column(db.String(10), nullable=False)
-    customer_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
+    shopping_basket_id = db.Column(
+        db.Integer, db.ForeignKey('shoppingBasket.basket_id'))
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    total = db.Column(Numeric(12, 2), nullable=False)
+    order_status_id = db.Column(
+        db.Integer, db.ForeignKey('orderStatus.status_id'))
