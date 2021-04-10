@@ -3,7 +3,7 @@ from flask import request
 from . import main
 from .forms import NewProduct
 from .. import db
-from ..models import User, Product, ProductCatalogue, ShoppingBasket, Order
+from ..models import User, Product
 
 
 @main.route('/')
