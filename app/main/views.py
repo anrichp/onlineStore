@@ -11,7 +11,7 @@ def index():
     return render_template('index.html')
 
 
-@main.route('/newProduct', methods=['GET', 'POST'])
+@main.route('/newproduct', methods=['GET', 'POST'])
 def newProduct():
     form = NewProduct()
 
