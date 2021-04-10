@@ -6,7 +6,7 @@ from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms import ValidationError
 from flask_pagedown.fields import PageDownField
 from .. import db
-from ..models import Product, Category, Location, ProductStatus, ProductCatalogue
+from ..models import *
 
 
 class NewProduct(FlaskForm):
