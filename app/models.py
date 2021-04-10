@@ -26,13 +26,6 @@ class User(db.Model):
         self.email_address = email_address
         self.contact_number = contact_number
 
-    @classmethod
-    def createUser(cls, **kw):
-        obj = cls(**kw)
-        session.add(obj)
-        session.commit()
-        session.close()
-
 
 class Customer(User):
     shipping_address = db.Column(db.String(50))
