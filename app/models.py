@@ -253,7 +253,7 @@ class Order(db.Model):
 class Orderstatus(db.Model):
     __tablename__ = 'orderStatus'
     status_id = db.Column(db.Integer, primary_key=True)
-    status = Column(db.String(20), nullable=False)
+    status = db.Column(db.String(20), nullable=False)
 
 # Payment Model
 
