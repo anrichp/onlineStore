@@ -7,7 +7,7 @@ app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 
 @app.shell_context_processor
 def make_shell_context():
-    return dict(db=db, User=User, Product=Product, ProductCatalogue=ProductCatalogue, ShoppingBasket=ShoppingBasket, Order=Order)
+    return dict(db=db, User=User, Product=Product, Category=Category, Location=Location, ProductStatus=ProductStatus, ProductCatalogue=ProductCatalogue, ShoppingBasket=ShoppingBasket, Order=Order)
 
 
 if __name__ == '__main__':
