@@ -17,7 +17,7 @@ class NewProduct(FlaskForm):
     def productStatusQuery():
         return db.session.query(ProductStatus)
 
-    product_name  = StringField('Name' validators=[Length(0,80), InputRequired()])
+    product_name  = StringField('Name', validators=[Length(0,80), InputRequired()])
     product_description = StringField('Description', validators=[Length(0, 250), InputRequired()])
     category = QuerySelectField(get_label='name', query_factory=categoryQuery)
     locaton = QuerySelectField(get_label='name', query_factory=locationQuery)
