@@ -62,4 +62,4 @@ def addToBasket(product_id):
 
     flash("Product added to Shopping Basket")
 
-    return redirect(url_for('.shoppingBasket'))
+    return redirect(url_for('.index'))
