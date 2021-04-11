@@ -13,4 +13,5 @@
 <li>{{ product.product_title }} - {{product.category.category_name}}</li>
 {% endfor %} 
 </ul>
+<a href="{{ url_for('.newproduct') }}" class="btn btn-outline-primary" role="button">New Product</a>
 {% endblock %}
