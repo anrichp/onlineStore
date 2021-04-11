@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, jsonify, session
+from flask import render_template, redirect, url_for, jsonify, session, flash
 from flask import request
 from . import main
 from .forms import NewProduct, NewCategory
