@@ -33,8 +33,8 @@ def newProduct():
 
     if request.method == 'POST' and form.validate_on_submit():
 
-        product = Product(product_title=form.product_name.data, product_description=form.product_description.data, product_price=form.product_price.data, category_category_id=form.category.data,
-                          location_location_id=form.location.data, quantity_quantity_id=form.quantity.data, productstatus_status_id=form.status.data, productcatalogue_catalogue_id=form.product_catalogue.data)
+        product = Product(product_title=form.product_name.data, product_description=form.product_description.data, product_price=form.product_price.data, category=form.category.data,
+                          location=form.location.data, quantity=form.quantity.data, productstatus=form.status.data, productcatalogue=form.product_catalogue.data)
 
         db.session.add(product)
         db.session.commit()
