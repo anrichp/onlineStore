@@ -60,6 +60,15 @@ def addToBasket(product_id):
 
     session['basket'].append(product_id)
 
-    flash("Product added to Shopping Basket")
-
     return redirect(url_for('.index'))
+
+
+@main.route('/shopping_basket')
+def shoppingBasket():
+
+    products = list()
+
+    for product in session['basket']:
+        products.append(db.session.query(Product).get(product))
+
+    return render_template('shoppingBasket.html', products=products)
