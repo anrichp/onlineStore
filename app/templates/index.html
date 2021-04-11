@@ -10,7 +10,7 @@
 <h2>Products</h2>
 <ul>
 {% for product in products %}
-<li><a href="{{ url_for('.productDetails', id=product.product_id)}}">{{ product.product_title }}</a> - {{product.category.category_name}}</li>
+<li><a href="{{ url_for('.productDetails', product_id=product.product_id)}}">{{ product.product_title }}</a> - {{product.category.category_name}}</li>
 {% endfor %} 
 </ul>
 <a href="{{ url_for('.newProduct') }}" class="btn btn-outline-primary" role="button">New Product</a>
