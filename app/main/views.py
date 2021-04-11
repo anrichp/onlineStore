@@ -9,7 +9,8 @@ from ..models import *
 @main.route('/')
 def index():
     products = db.session.query(Product).all()
-    return render_template('index.html', products=products)
+    categories = db.session.query(Category).all()
+    return render_template('index.html', products=products, categories=categories)
 
 
 @main.route('/newcategory', methods=['GET', 'POST'])
