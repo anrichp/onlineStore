@@ -12,6 +12,18 @@ def index():
     return render_template('index.html', products=products)
 
 
+@main.route('/newcategory', methods=['GET', 'POST'])
+def newCategory():
+    form = NewCategory()
+
+    if request.method == 'POST' and form.validate_on_submit():
+        category = Category(category_name=form.category_name.data)
+
+        db.session.add(category)
+        db.session.commit()
+
+    return render_template('newCategory.html', form=form)
+
 @main.route('/newproduct', methods=['GET', 'POST'])
 def newProduct():
     form = NewProduct()
