@@ -185,7 +185,7 @@ class Order(db.Model):
     # Relationship
     line_items = db.relationship("OrderLine", secondary="order_lines", backref='order')
 
-class OrderLine(Base):
+class OrderLine(db.Model):
     __tablename__ = 'orderLines'
 
     orderlines_id =  db.Column(db.Integer, primary_key=True)
