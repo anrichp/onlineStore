@@ -1,4 +1,5 @@
 from datetime import datetime
+from decimal import Decimal as D
 from flask import current_app, request, url_for
 from . import db
 
