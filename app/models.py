@@ -1,5 +1,4 @@
 from datetime import datetime
-from decimal import Decimal as D
 import sqlalchemy.types as types
 from flask import current_app, request, url_for
 from . import db
@@ -109,15 +108,6 @@ association_table = db.Table('product_catalogue', db.metadata, db.Column('produc
     'productCatalogue.catalogue_id')), db.Column('product_id', db.Integer, db.ForeignKey('product.product_id')))
 
 
-class SqliteNumeric(types.TypeDecorator):
-    impl = types.String
-    def load_dialect_impl(self, dialect):
-        return dialect.type_descriptor(types.VARCHAR(100))
-    def process_bind_param(self, value, dialect):
-        return str(value)
-    def process_result_value(self, value, dialect):
-        return D(value)
-
 class Product(db.Model):
     __tablename__ = 'product'
 
@@ -125,7 +115,7 @@ class Product(db.Model):
     product_title = db.Column(db.String(50), nullable=False)
     product_description = db.Column(db.String(120), nullable=False)
     # removed decimal place to test wtforms field
-    product_price = db.Column(SqliteNumeric(12,1), nullable=False)
+    product_price = db.Column(db.Numeric(12, 1), nullable=False)
     category_category_id = db.Column(
         db.Integer, db.ForeignKey('category.category_id'))
     location_location_id = db.Column(
