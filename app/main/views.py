@@ -52,7 +52,7 @@ def productDetails(product_id):
     return render_template('product.html', product=product)
 
 
-@main.route('/add_to_shopping_basket/<int:id>')
+@main.route('/add_to_shopping_basket/<int:product_id>')
 def addToCart(product_id):
 
     if 'basket' not in session:
