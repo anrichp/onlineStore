@@ -3,6 +3,7 @@ from wtforms import StringField, TextAreaField, BooleanField, SelectField,\
     SubmitField, IntegerField, DecimalField
 from wtforms.validators import DataRequired, Length, NumberRange, Email, InputRequired
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
+from wtforms.widgets.html5 import NumberInput
 from wtforms import ValidationError
 from flask_pagedown.fields import PageDownField
 from .. import db
