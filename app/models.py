@@ -130,7 +130,7 @@ class Product(db.Model):
     category = db.relationship('Category', foreign_keys=category_category_id)
     location = db.relationship('Location', foreign_keys=location_location_id)
     quantity = db.relationship(
-        'Quantity', foreign_keys=quantity_quantity_id, back_populates=Quantity)
+        'Quantity', foreign_keys=quantity_quantity_id, back_populates='Quantity')
     productstatus = db.relationship(
         'ProductStatus', foreign_keys=productstatus_status_id)
     productcatalogue = db.relationship(
