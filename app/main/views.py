@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, jsonify, session
 from flask import request
 from . import main
-from .forms import NewProduct
+from .forms import NewProduct, NewCategory
 from .. import db
 from ..models import *
 
