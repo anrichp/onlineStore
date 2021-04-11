@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, BooleanField, SelectField,\
-    SubmitField, IntegerField
+    SubmitField, IntegerField, DecimalField
 from wtforms.validators import DataRequired, Length, NumberRange, Email, InputRequired
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms import ValidationError
@@ -28,7 +28,7 @@ class NewProduct(FlaskForm):
         'Name', validators=[Length(0, 80), InputRequired()])
     product_description = StringField('Description', validators=[
                                       Length(0, 250), InputRequired()])
-    product_price = IntegerField(
+    product_price = DecimalField(
         'Price', validators=[NumberRange(min=0, max=10000), InputRequired()])
     category = QuerySelectField(
         get_label='category_name', query_factory=categoryQuery)
