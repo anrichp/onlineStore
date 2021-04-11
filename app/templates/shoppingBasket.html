@@ -10,7 +10,7 @@
 <h2>Products</h2>
 <ul>
 {% for product in products %}
-<li>{{ product.product_title }}</li>
+<li><a href="{{ url_for('.productDetails', product_id=product.product_id)}}"></a>{{ product.product_title }}</li>
 {% endfor %}
 </ul> 
 {% endblock %}
