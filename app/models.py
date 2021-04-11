@@ -115,12 +115,11 @@ class Product(db.Model):
     product_title = db.Column(db.String(50), nullable=False)
     product_description = db.Column(db.String(120), nullable=False)
     product_price = db.Column(db.Numeric(12, 2), nullable=False)
+    product_quantity = db.Column(db.Numeric(12,0), nullable=False)
     category_category_id = db.Column(
         db.Integer, db.ForeignKey('category.category_id'))
     location_location_id = db.Column(
         db.Integer, db.ForeignKey('location.location_id'))
-    quantity_quantity_id = db.Column(
-        db.Integer, db.ForeignKey('quantity.quantity_id'))
     productstatus_status_id = db.Column(
         db.Integer, db.ForeignKey('productStatus.status_id'))
     productcatalogue_catalogue_id = db.Column(
@@ -129,7 +128,6 @@ class Product(db.Model):
     # Relationships
     category = db.relationship('Category', foreign_keys=category_category_id)
     location = db.relationship('Location', foreign_keys=location_location_id)
-    quantity = db.relationship('Quantity', foreign_keys=quantity_quantity_id, back_populates='product')
     productstatus = db.relationship(
         'ProductStatus', foreign_keys=productstatus_status_id)
     productcatalogue = db.relationship(
@@ -148,18 +146,6 @@ class Location(db.Model):
 
     location_id = db.Column(db.Integer, primary_key=True)
     product_location = db.Column(db.String(50), nullable=False)
-
-
-class Quantity(db.Model):
-    __tablename__ = 'quantity'
-
-    quantity_id = db.Column(db.Integer, primary_key=True)
-    product_product_id = db.Column(
-        db.Integer, db.ForeignKey('product.product_id'))
-    quantity = db.Column(db.Numeric(12, 0), nullable=False)
-
-    # Relationship
-    product = db.relationship('Product', foreign_keys=product_product_id, back_populates='quantity')
 
 
 class ProductStatus(db.Model):
