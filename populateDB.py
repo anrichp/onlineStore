@@ -1,5 +1,5 @@
 from app import db
-from app.models import User, Orginisation, Product, Category, Location, ProductStatus, ProductCatalogue
+from app.models import User, Orginisation, Product, Category, Location, ProductStatus, ProductCatalogue, Order, OrderLine, Orderstatus
 
 sellerOrginisation = Orginisation(
     'Anrich', 'Potgieter', 'anrichp@gmail.com', '07907451834', 'Mordecai', '12345678')
