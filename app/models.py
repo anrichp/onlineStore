@@ -185,8 +185,7 @@ class Order(db.Model):
         db.Integer, db.ForeignKey('orderStatus.status_id'))
 
     # Relationship
-    line_items = db.relationship(
-        "OrderLine", secondary="orderLines", backref='order')
+    line_items = db.relationship("OrderLine", backref='order')
 
 
 class OrderLine(db.Model):
