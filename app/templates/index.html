@@ -1,12 +1,19 @@
-{% extends "bootstrap/base.html" %}
-{% block title %}Home Page{% endblock %}
-
-{% block navbar %}
+{% extends "bootstrap/base.html" %} 
+{% block title %}Home Page{% endblock %} 
+{%block navbar %}
 <div class="navbar navbar-fixed-top">
   <!-- ... -->
 </div>
-{% endblock %}
-
+{% endblock %} 
 {% block content %}
-  <h1>Online Store</h1>
+<h1>Online Store</h1>
+<h2>Products</h2>
+{% for product in products %}
+<p>
+  <a
+    href="{{ url_for('.product', category=product.category.category_name, product=product.product_title) }}"
+    >{{ product.product_title }} - </a
+  >{{product.category.category_name}}
+</p>
+{% endfor %} 
 {% endblock %}
