@@ -177,8 +177,6 @@ class Order(db.Model):
 
     order_id = db.Column(db.Integer, primary_key=True)
     customer_user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
-    orderLines_orderlines_id = db.Column(
-        db.Integer, db.ForeignKey('orderLines.orderlines_id'))
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
     total = db.Column(db.Numeric(12, 2), nullable=False)
     order_status_id = db.Column(
