@@ -71,4 +71,7 @@ def shoppingBasket():
     for product in session['basket']:
         products.append(db.session.query(Product).get(product))
 
+    if 'basket' not in session:
+        return redirect(url_for('.index'))
+
     return render_template('shoppingBasket.html', products=products)
