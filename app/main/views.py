@@ -53,7 +53,7 @@ def productDetails(product_id):
 
 
 @main.route('/add_to_shopping_basket/<int:product_id>')
-def addToCart(product_id):
+def addToBasket(product_id):
 
     if 'basket' not in session:
         session['basket'] = []
