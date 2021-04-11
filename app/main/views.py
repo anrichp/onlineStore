@@ -36,7 +36,7 @@ def newProduct():
         product = Product(product_title=form.product_name.data, product_description=form.product_description.data, product_price=form.product_price.data, product_quantity=form.quantity.data, category=form.category.data,
                           location=form.location.data, productstatus=form.status.data, productcatalogue=form.product_catalogue.data)
 
-        db.session.add(quantity)
+        db.session.add(product)
         db.session.commit()
 
     return render_template('newProduct.html', form=form)
