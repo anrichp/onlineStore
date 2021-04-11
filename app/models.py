@@ -115,7 +115,7 @@ class Product(db.Model):
     product_title = db.Column(db.String(50), nullable=False)
     product_description = db.Column(db.String(120), nullable=False)
     product_price = db.Column(db.Numeric(12, 2), nullable=False)
-    product_quantity = db.Column(db.Numeric(12,0), nullable=False)
+    product_quantity = db.Column(db.Numeric(12, 0), nullable=False)
     category_category_id = db.Column(
         db.Integer, db.ForeignKey('category.category_id'))
     location_location_id = db.Column(
@@ -168,26 +168,6 @@ class ProductCatalogue(db.Model):
                            foreign_keys=seller_id)
     products = db.relationship('Product', secondary=association_table)
 
-
-# Shopping Basket Model
-
-
-class ShoppingBasket(db.Model):
-    __tablename__ = 'shoppingBasket'
-
-    basket_id = db.Column(db.Integer, primary_key=True)
-    customer_user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
-    created_date = db.Column(db.DateTime, default=datetime.utcnow)
-    quantity = db.Column(db.Numeric(10))
-    product_product_id = db.Column(
-        db.Integer, db.ForeignKey('product.product_id'))
-    total_cost = db.Column(db.Numeric(12, 2), nullable=False)
-
-    # Relationships
-    user = db.relationship('User', backref='shoppingBasket',
-                           foreign_keys=customer_user_id)
-    # products = db.relationship(
-    #     'Product', backref='shoppingBasket', foreign_keys=product_product_id)
 
 # Order Model
 
