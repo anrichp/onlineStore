@@ -114,7 +114,6 @@ class Product(db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
     product_title = db.Column(db.String(50), nullable=False)
     product_description = db.Column(db.String(120), nullable=False)
-    # removed decimal place to test wtforms field
     product_price = db.Column(db.Numeric(12,2), nullable=False)
     category_category_id = db.Column(
         db.Integer, db.ForeignKey('category.category_id'))
