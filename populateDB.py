@@ -15,3 +15,15 @@ awaitingDelivery = Location(product_location='Awaiting Delivery')
 inStock = ProductStatus(product_status='In Stock')
 outStock = ProductStatus(product_status='Out Of Stock')
 
+db.session.add(sellerOrginisation)
+db.session.add(mordecaiCatalogue)
+db.session.add(desktop)
+db.session.add(laptop)
+db.session.add(warehouse)
+db.session.add(awaitingDelivery)
+db.session.add(inStock)
+db.session.add(outStock)
+
+db.session.commit()
+
+print("Added all items to the database")
