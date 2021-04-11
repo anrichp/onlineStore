@@ -29,7 +29,7 @@ class NewProduct(FlaskForm):
         'Name', validators=[Length(0, 80), InputRequired()])
     product_description = StringField('Description', validators=[
                                       Length(0, 250), InputRequired()])
-    product_price = DecimalField(
+    product_price = IntegerField()(
         'Price', validators=[InputRequired()], places=2, widget=NumberInput())
     category = QuerySelectField(
         get_label='category_name', query_factory=categoryQuery)
