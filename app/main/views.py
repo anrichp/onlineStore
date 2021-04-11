@@ -83,4 +83,16 @@ def shoppingBasket():
 
 @main.route('/checkout')
 def checkout():
-    pass
+    products = list()
+    total_cost = Decimal()
+
+    if 'basket' not in session:
+        return redirect(url_for('.index'))
+
+    for product in session['basket']:
+        products.append(db.session.query(Product).get(product))
+
+    for price in products:
+        total_cost += price.product_price
+
+    
