@@ -3,7 +3,6 @@ from wtforms import StringField, TextAreaField, BooleanField, SelectField,\
     SubmitField, IntegerField, DecimalField
 from wtforms.validators import DataRequired, Length, NumberRange, Email, InputRequired
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
-from wtforms.widgets.html5 import NumberInput
 from wtforms import ValidationError
 from flask_pagedown.fields import PageDownField
 from .. import db
@@ -30,7 +29,7 @@ class NewProduct(FlaskForm):
     product_description = StringField('Description', validators=[
                                       Length(0, 250), InputRequired()])
     product_price = DecimalField(
-        'Price', validators=[InputRequired()], places=2, widget=NumberInput())
+        'Price', validators=[InputRequired()], places=2)
     category = QuerySelectField(
         get_label='category_name', query_factory=categoryQuery)
     quantity = IntegerField('Quantity', validators=[
