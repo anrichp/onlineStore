@@ -129,7 +129,7 @@ class Product(db.Model):
     # Relationships
     category = db.relationship('Category', foreign_keys=category_category_id)
     location = db.relationship('Location', foreign_keys=location_location_id)
-    quantity = db.relationship('Quantity', foreign_keys=quantity_quantity_id)
+    quantity = db.relationship('Quantity', foreign_keys=quantity_quantity_id, back_populates='product')
     productstatus = db.relationship(
         'ProductStatus', foreign_keys=productstatus_status_id)
     productcatalogue = db.relationship(
@@ -159,7 +159,7 @@ class Quantity(db.Model):
     quantity = db.Column(db.Numeric(12, 0), nullable=False)
 
     # Relationship
-    product = db.relationship('Product', foreign_keys=product_product_id)
+    product = db.relationship('Product', foreign_keys=product_product_id, back_populates='quantity')
 
 
 class ProductStatus(db.Model):

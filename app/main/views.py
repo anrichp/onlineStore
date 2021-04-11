@@ -34,9 +34,11 @@ def newProduct():
     if request.method == 'POST' and form.validate_on_submit():
 
         product = Product(product_title=form.product_name.data, product_description=form.product_description.data, product_price=form.product_price.data, category=form.category.data,
-                          location=form.location.data, quantity=form.quantity.data, productstatus=form.status.data, productcatalogue=form.product_catalogue.data)
+                          location=form.location.data, productstatus=form.status.data, productcatalogue=form.product_catalogue.data)
 
-        db.session.add(product)
+        quantity = Quantity(product=product, quantity=form.quantity.data)
+
+        db.session.add(quantity)
         db.session.commit()
 
     return render_template('newProduct.html', form=form)
