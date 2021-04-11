@@ -43,3 +43,10 @@ def newProduct():
         return redirect(url_for('.index'))
 
     return render_template('newProduct.html', form=form)
+
+
+@main.route('/product/<int:id>')
+def productDetails(id):
+    product = db.session.query(Product).get(id)
+
+    return render_template('product.html', product=product)
