@@ -1,0 +1,16 @@
+{% extends "bootstrap/base.html" %} 
+{% block title %}Home Page{% endblock %} 
+{%block navbar %}
+<div class="navbar navbar-fixed-top">
+  <!-- ... -->
+</div>
+{% endblock %} 
+{% block content %}
+<h1>Shopping Basket</h1>
+<h2>Products</h2>
+<ul>
+{% for product in products %}
+<li>{{ product.product_title }}</li>
+{% endfor %}
+</ul> 
+{% endblock %}
