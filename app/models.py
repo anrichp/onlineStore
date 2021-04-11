@@ -176,12 +176,23 @@ class Order(db.Model):
     __tablename__ = 'order'
 
     order_id = db.Column(db.Integer, primary_key=True)
-    shopping_basket_id = db.Column(
-        db.Integer, db.ForeignKey('shoppingBasket.basket_id'))
+    customer_user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
     total = db.Column(db.Numeric(12, 2), nullable=False)
     order_status_id = db.Column(
         db.Integer, db.ForeignKey('orderStatus.status_id'))
+
+    # Relationship
+    line_items = db.relationship("OrderLine", secondary="order_lines", backref='order')
+
+class OrderLine(Base):
+    __tablename__ = 'orderLines'
+
+    orderlines_id =  db.Column(db.Integer, primary_key=True)
+    order_id = db.Column(Integer, db.ForeignKey('order.order_id'))
+    item_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
+    quantity = Column(SmallInteger())
+    product = db.relationship("Product")
 
 
 class Orderstatus(db.Model):
