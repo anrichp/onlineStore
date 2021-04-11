@@ -13,4 +13,6 @@
 <li><a href="{{ url_for('.productDetails', product_id=product.product_id)}}">{{ product.product_title }}</a></li>
 {% endfor %}
 </ul> 
+<h3>Total</h3>
+<h4>Price: {{ total }}</h4>
 {% endblock %}
