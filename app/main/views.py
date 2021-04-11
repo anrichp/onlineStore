@@ -45,7 +45,7 @@ def newProduct():
     return render_template('newProduct.html', form=form)
 
 
-@main.route('/product/<int:id>')
+@main.route('/product/<int:product_id>')
 def productDetails(product_id):
     product = db.session.query(Product).get(product_id)
 
