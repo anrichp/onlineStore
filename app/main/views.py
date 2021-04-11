@@ -22,6 +22,8 @@ def newCategory():
         db.session.add(category)
         db.session.commit()
 
+        return redirect(url_for('.index'))
+
     return render_template('newCategory.html', form=form)
 
 @main.route('/newproduct', methods=['GET', 'POST'])
