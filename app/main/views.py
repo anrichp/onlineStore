@@ -46,7 +46,20 @@ def newProduct():
 
 
 @main.route('/product/<int:id>')
-def productDetails(id):
-    product = db.session.query(Product).get(id)
+def productDetails(product_id):
+    product = db.session.query(Product).get(product_id)
 
     return render_template('product.html', product=product)
+
+
+@main.route('/add_to_shopping_basket/<int:id>')
+def addToCart(product_id):
+
+    if 'basket' not in session:
+        session['basket'] = []
+
+    session['basket'].append(product_id)
+
+    flash("Product added to Shopping Basket")
+
+    return redirect(url_for('.shoppingBasket'))
