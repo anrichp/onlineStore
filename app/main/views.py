@@ -4,6 +4,7 @@ from . import main
 from .forms import NewProduct, NewCategory
 from .. import db
 from ..models import *
+from decimal import *
 
 
 @main.route('/')
@@ -67,6 +68,7 @@ def addToBasket(product_id):
 def shoppingBasket():
 
     products = list()
+    total_cost = Decimal()
 
     if 'basket' not in session:
         return redirect(url_for('.index'))
@@ -74,5 +76,11 @@ def shoppingBasket():
     for product in session['basket']:
         products.append(db.session.query(Product).get(product))
 
+    for price in products:
+        total_cost += price.product_price
 
-    return render_template('shoppingBasket.html', products=products)
+    return render_template('shoppingBasket.html', products=products, total=total_cost)
+
+@main.route('/checkout')
+def checkout():
+    pass
