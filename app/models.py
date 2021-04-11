@@ -155,7 +155,11 @@ class Quantity(db.Model):
     __tablename__ = 'quantity'
 
     quantity_id = db.Column(db.Integer, primary_key=True)
+    product_product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
     quantity = db.Column(db.Numeric(12, 0), nullable=False)
+
+    # Relationship
+    product = db.relationship('Product', foreign_keys=product_product_id)
 
 
 class ProductStatus(db.Model):
