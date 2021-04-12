@@ -227,6 +227,16 @@ class Order(db.Model):
 
 
 class OrderLine(db.Model):
+    """Order Line Table
+
+        The purpose of the orderLines table is to store a many-to-one relationship 
+        between the order and products in the shopping basket.
+
+        Relationship:
+            - product: Accepts a product to form the relationship between the 
+              order line and order table
+
+    """
     __tablename__ = 'orderLines'
 
     orderlines_id = db.Column(db.Integer, primary_key=True)
