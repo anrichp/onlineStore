@@ -1,8 +1,11 @@
 from app import db
-from app.models import User, Orginisation, Product, Category, Location, ProductStatus, ProductCatalogue, Order, OrderLine, Orderstatus
+from app.models import User, Customer, Orginisation, Product, Category, Location, ProductStatus, ProductCatalogue, Order, OrderLine, Orderstatus
 
 sellerOrginisation = Orginisation(
     'Anrich', 'Potgieter', 'anrichp@gmail.com', '07907451834', 'Mordecai', '12345678')
+
+Quintus = Customer(first_name='Quintus', last_name='Potgieter',
+                   email_address='quintus123@gmail.com', contact_number='123456789')
 
 mordecaiCatalogue = ProductCatalogue(user=sellerOrginisation)
 
