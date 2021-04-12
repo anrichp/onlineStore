@@ -45,6 +45,16 @@ p1 = Product(
     productstatus=inStock,
     productcatalogue=mordecaiCatalogue
 )
+p2 = Product(
+    product_title='LENOVO Legion 5P 15.6" Gaming Laptop - AMD Ryzen 7, RTX 2060, 256 GB SSD',
+    product_description='Forget checking the game requirements - the RTX 2060 graphics card will play anything you throw at it. For unbelievably realistic lighting, shadows and reflections, the Turing architecture provides real-time ray tracing and AI-enhanced graphics.',
+    product_price=849.87,
+    product_quantity=10,
+    category=laptop,
+    location=warehouse,
+    productstatus=inStock,
+    productcatalogue=mordecaiCatalogue
+)
 
 
 db.session.add(sellerOrginisation)
