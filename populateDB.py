@@ -56,6 +56,16 @@ p2 = Product(
     productcatalogue=mordecaiCatalogue
 )
 
+p3 = Product(
+    product_title='ACER Nitro 5 AN517 17.3" Gaming Laptop - Intel® Core™ i7, RTX 2060, 256 GB',
+    product_description='In an intense gaming session the last thing you want is your hardware overheating. The Nitro 5 stays cool under pressure with dual fans, so you can finish off all your quests, missions and battles, no matter how long they take. And with the NitroSense app you can easily adjust and monitor fan speeds with one simple press of the hotkey.',
+    product_price=849.87,
+    product_quantity=10,
+    category=laptop,
+    location=warehouse,
+    productstatus=inStock,
+    productcatalogue=mordecaiCatalogue
+)
 
 db.session.add(sellerOrginisation)
 db.session.add(mordecaiCatalogue)
