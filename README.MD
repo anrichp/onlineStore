@@ -52,6 +52,10 @@ db.create_all()
 import populateDB
 ```
 
+```
+exit()
+```
+
 ## Run the Application
 
 ```
