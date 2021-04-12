@@ -28,6 +28,7 @@ from . import db
 
 """
 
+
 class User(db.Model):
     """User Table
 
@@ -202,6 +203,16 @@ class ProductCatalogue(db.Model):
 
 
 class Order(db.Model):
+    """Order Table
+
+        Order table stores the order for each shopping basket which is checkedout.
+        Order items are stored in the orderLines table to facilitate multiple
+        products for each order.
+
+        Relationship:
+            - line_items: Relationship which joins the order to the order line items
+
+    """
     __tablename__ = 'order'
 
     order_id = db.Column(db.Integer, primary_key=True)
@@ -222,7 +233,7 @@ class OrderLine(db.Model):
     order_id = db.Column(db.Integer, db.ForeignKey('order.order_id'))
     product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
     quantity = db.Column(db.Numeric(10, 0))
-    
+
     # Relationship
     product = db.relationship("Product")
 
