@@ -60,6 +60,7 @@ def addToBasket(product_id):
         session['basket'] = []
 
     session['basket'].append(product_id)
+    session.modified = True
 
     return redirect(url_for('.index'))
 
