@@ -138,7 +138,7 @@ class Product(db.Model):
 
     product_id = db.Column(db.Integer, primary_key=True)
     product_title = db.Column(db.String(200), nullable=False)
-    product_description = db.Column(db.String(200), nullable=False)
+    product_description = db.Column(db.String(500), nullable=False)
     product_price = db.Column(db.Numeric(12, 2), nullable=False)
     product_quantity = db.Column(db.Numeric(12, 0), nullable=False)
     category_category_id = db.Column(
