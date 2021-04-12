@@ -3,6 +3,8 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
+    SESSION_TYPE = 'filesystem'
+    SESSION_PERMANENT = False
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     PROJECT_ID = 'onlinestore'
