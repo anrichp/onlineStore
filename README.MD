@@ -7,7 +7,7 @@ should have the ability to post, edit, and delete their own items.
 
 ## Installation
 
-Update to the latest version of Python3
+### Update to the latest version of Python3
 
 ```
 sudo apt-get install python3
