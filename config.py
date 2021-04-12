@@ -6,7 +6,7 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
     CATALOG_ADMIN = os.environ.get('CATALOG_ADMIN')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    PROJECT_ID = 'item-catalog-233714'
+    PROJECT_ID = 'onlinestore'
 
     @staticmethod
     def init_app(app):
