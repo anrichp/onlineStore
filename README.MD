@@ -33,7 +33,11 @@ pip3 install -r requirements.txt
   to reflect the newly created database.
 
 ```
-export FLASK_APP=onlinestore.py
+export FLASK_APP=onlineStore.py
+```
+
+```
+cd onlineStore
 ```
 
 ```
@@ -93,3 +97,7 @@ To preview the application, please click on the Box URL Preview button in codio
     }]
 }
 ```
+### References
+
+Grinberg, M. (2021) miguelgrinberg/flasky. Available at: https://github.com/miguelgrinberg/flasky 2021).
+OverIQ (2020) CRUD using SQLAlchemy ORM. Available at: https://overiq.com/sqlalchemy-101/crud-using-sqlalchemy-orm/ 2021).
