@@ -180,6 +180,16 @@ class ProductStatus(db.Model):
 
 
 class ProductCatalogue(db.Model):
+    """ Product Catalogue Table
+
+        The product catalogue table joins the seller to their catalogue.
+
+        Relationships:
+            - user: Accepts a user and stores the users id
+            - products: Creates an assosication table which will populate the associated 
+                        table with the product catalogues
+
+    """
     __tablename__ = 'productCatalogue'
 
     catalogue_id = db.Column(db.Integer, primary_key=True)
