@@ -1,4 +1,3 @@
-
 # Online Store
 
 Item Catalog is a web application that provides a list of items
@@ -20,13 +19,12 @@ listed in **dependencies** section below.
 ### Dependencies
 
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## Create & Populate Database
 
-- This project already includes a database with pre-populated data
-- Please delete the data-dev.sqlite file before running **db.create_all()** & **populateDB**
+- A database with the name **onlinestore** has been created in codio for this project. If you wish to run this project outside of codio, you will need to create a new MySQL database with the name **onlinestore** and modify the flask config.py file and modify the connect string to reflect the newly created database.
 
 ```
 export FLASK_APP=onlinestore.py
@@ -51,5 +49,5 @@ import populateDB
 ## Run the Application
 
 ```
-python onlineStore.py
+python3 onlineStore.py
 ```
