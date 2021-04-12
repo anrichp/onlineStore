@@ -9,8 +9,8 @@ from . import db
     Each class in the models.py file with exeption to the inherited classes 
     represent a table in the database.
 
-    Example Table Declaration
-
+    # Example Table Declaration
+    
     class User(db.Model):
         __tablename__ = 'User'
 
@@ -121,6 +121,9 @@ association_table = db.Table('product_catalogue', db.metadata, db.Column('produc
 
 
 class Product(db.Model):
+    """Product Table
+
+    """
 
     __tablename__ = 'product'
 
