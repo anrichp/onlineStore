@@ -31,6 +31,9 @@ pip3 install -r requirements.txt
   If you wish to run this project outside of codio, you will need to create a new MySQL database
   with the name **onlinestore** and modify the flask config.py file by modifying the connect string
   to reflect the newly created database.
+  
+- The populateDB.py file is the data I used to test my code. This file shows that the relationships in
+  the database are working as expexted.
 
 ```
 export FLASK_APP=onlineStore.py
