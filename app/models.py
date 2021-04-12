@@ -3,13 +3,37 @@ import sqlalchemy.types as types
 from flask import current_app, request, url_for
 from . import db
 
+"""Declaring Models
+
+    Using the SQLAlchemy Library the online store models are defined below.
+    Each class in the models.py file with exeption to the inherited classes 
+    represent a table in the database.
+
+    Example Table Declaration
+
+    class User(db.Model):
+        __tablename__ = 'User'
+
+        id = db.Column(db.Integer, primary_key=True)
+        sername = db.Column(db.String(80), unique=True, nullable=False)
+        email = db.Column(db.String(120), unique=True, nullable=False)
+
+        # Relationship
+        addresses = db.relationship('Address', backref='person', lazy=True)
+
+    Typically a table declaration contains:
+     - Table name
+     - Variables representing columns
+     - relaionships
+
+"""
 
 class User(db.Model):
     """User Table
 
-        The user table is responsble for storing all users in the online storee.
+        The user table is responsble for storing all users in the online store.
         The type column is used to indicate the user type. Subsequent classes/tables that inherit user 
-        have a mapping arg which ensures that the type is updated according to the class or table.
+        have a mapping arg which ensures that the type is updated according to the class or table used.
 
     """
     __tablename__ = 'user'
