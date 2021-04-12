@@ -184,7 +184,6 @@ def orders():
         TODO:
          - Create order.html 
 
-
     """
     orders = db.query(Order).all()
     if order is None:
