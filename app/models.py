@@ -223,6 +223,7 @@ class Order(db.Model):
         db.Integer, db.ForeignKey('orderStatus.status_id'))
 
     # Relationship
+    customer = db.relationship('User', foreign_keys=customer_user_id)
     line_items = db.relationship("OrderLine", backref='order')
 
 
