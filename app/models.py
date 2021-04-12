@@ -255,6 +255,16 @@ class Orderstatus(db.Model):
 
 
 class Payment(db.Model):
+    """Payment Table
+
+        The payment table will complete the payment for an order.
+
+        Relationships:
+            - Order: recieves an order to populate the order_order_id 
+                     foreign key relationship between the payment and order tables.
+            - paymentmethod: Foreign key reference to the various payment method types.
+
+    """
     __tablename__ = 'payment'
     payment_id = db.Column(db.Integer, primary_key=True)
     order_order_id = db.Column(
