@@ -185,7 +185,7 @@ def orders():
          - Create order.html 
 
     """
-    orders = db.query(Order).all()
+    orders = db.session.query(Order).all()
     if order is None:
         return redirect(url_for('.index'))
 
