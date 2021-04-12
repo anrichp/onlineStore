@@ -57,6 +57,7 @@ import populateDB
 ```
 python3 onlineStore.py
 ```
+## Preview Application
 
 To preview the application, please click on the Box URL Preview button in codio
 
