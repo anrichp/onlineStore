@@ -10,7 +10,7 @@ from . import db
     represent a table in the database.
 
     # Example Table Declaration
-    
+
     class User(db.Model):
         __tablename__ = 'User'
 
@@ -122,6 +122,14 @@ association_table = db.Table('product_catalogue', db.metadata, db.Column('produc
 
 class Product(db.Model):
     """Product Table
+
+        The product table is responsible for storing all products for all seller types.
+
+        Relationships:
+            - category: Indicates which category the product belongs to.
+            - location: Indicates where product is located.
+            - productstatus: Inidcates whether a product is in stock.
+            - productcatalogue: Ensures the product is linked to the sellers catalogue.
 
     """
 
