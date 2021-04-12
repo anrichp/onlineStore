@@ -26,19 +26,13 @@ class User(db.Model):
         'polymorphic_identity': 'user'
     }
 
-    def __init__(self, first_name, last_name, email_address, contact_number):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.email_address = email_address
-        self.contact_number = contact_number
-
 
 class Customer(User):
     """Customer Table
 
         The customer table is an example of inheritance and has a polymophic identity which ensures
         that the type field is updated according to the table or class used.
-        
+
     """
     shipping_address = db.Column(db.String(50))
     billing_address = db.Column(db.String(50))
@@ -83,14 +77,6 @@ class Individual(ThirdPartySeller):
     proof_of_identity = db.Column(db.String(50))
     proof_of_banking = db.Column(db.String(50))
 
-    def __init__(self, first_name, last_name, email_address, contact_number, proof_of_identity, proof_of_banking):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.email_address = email_address
-        self.contact_number = contact_number
-        self.proof_of_identity = proof_of_identity
-        self.proof_of_banking = proof_of_banking
-
     __mapper_args__ = {
         'polymorphic_identity': 'individual'
     }
@@ -100,25 +86,18 @@ class Orginisation(ThirdPartySeller):
     company_name = db.Column(db.String(50))
     tax_certificate = db.Column(db.String(50))
 
-    def __init__(self, first_name, last_name, email_address, contact_number, company_name, tax_certificate):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.email_address = email_address
-        self.contact_number = contact_number
-        self.company_name = company_name
-        self.tax_certificate = tax_certificate
-
     __mapper_args__ = {
         'polymorphic_identity': 'orginisation'
     }
 
 
-#  Product Model
+#  Product association table
 association_table = db.Table('product_catalogue', db.metadata, db.Column('productCatalogue_id', db.Integer, db.ForeignKey(
     'productCatalogue.catalogue_id')), db.Column('product_id', db.Integer, db.ForeignKey('product.product_id')))
 
 
 class Product(db.Model):
+
     __tablename__ = 'product'
 
     product_id = db.Column(db.Integer, primary_key=True)
@@ -164,8 +143,6 @@ class ProductStatus(db.Model):
     status_id = db.Column(db.Integer, primary_key=True)
     product_status = db.Column(db.String(50), nullable=False)
 
-# Product Catalogue Model
-
 
 class ProductCatalogue(db.Model):
     __tablename__ = 'productCatalogue'
@@ -177,9 +154,6 @@ class ProductCatalogue(db.Model):
     user = db.relationship('User', backref='productCatalogue',
                            foreign_keys=seller_id)
     products = db.relationship('Product', secondary=association_table)
-
-
-# Order Model
 
 
 class Order(db.Model):
@@ -203,6 +177,8 @@ class OrderLine(db.Model):
     order_id = db.Column(db.Integer, db.ForeignKey('order.order_id'))
     product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
     quantity = db.Column(db.Numeric(10, 0))
+    
+    # Relationship
     product = db.relationship("Product")
 
 
@@ -210,8 +186,6 @@ class Orderstatus(db.Model):
     __tablename__ = 'orderStatus'
     status_id = db.Column(db.Integer, primary_key=True)
     status = db.Column(db.String(20), nullable=False)
-
-# Payment Model
 
 
 class Payment(db.Model):
