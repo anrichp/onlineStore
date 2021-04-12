@@ -36,6 +36,7 @@ db.session.add(inStock)
 db.session.add(outStock)
 db.session.add_all([in_progress, processing, pending_payment,
                    awaiting_picking, ready_for_delivery, shipped])
+db.session.add(Quintus)
 
 db.session.commit()
 
