@@ -141,6 +141,7 @@ def shoppingBasket():
     for product in session['basket']:
         products.append(db.session.query(Product).get(product))
 
+    # Iterate over products and store total price for all products in cart
     for price in products:
         total_cost += price.product_price
 
