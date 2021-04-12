@@ -61,6 +61,10 @@ def newProduct():
         ON POST:
             Stores a new product in the poduct table and user is redirected to index page.
 
+    TODO:
+        - Use login session to determine the seller and append the new product to the sellers catalogue.
+        - Add catalogue name to catalogue model in models.py
+
     """
     form = NewProduct()
 
