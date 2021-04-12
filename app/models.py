@@ -3,10 +3,15 @@ import sqlalchemy.types as types
 from flask import current_app, request, url_for
 from . import db
 
-# User Models
-
 
 class User(db.Model):
+    """User Table
+
+        The user table is responsble for storing all users in the online storee.
+        The type column is used to indicate the user type. Subsequent classes/tables that inherit user 
+        have a mapping arg which ensures that the type is updated according to the class or table.
+
+    """
     __tablename__ = 'user'
 
     user_id = db.Column(db.Integer, primary_key=True)
@@ -29,10 +34,15 @@ class User(db.Model):
 
 
 class Customer(User):
+    """Customer Table
+
+        The customer table is an example of inheritance and has a polymophic identity which ensures
+        that the type field is updated according to the table or class used.
+        
+    """
     shipping_address = db.Column(db.String(50))
     billing_address = db.Column(db.String(50))
     payment_details = db.Column(db.String(50))
-    # orders = db.relationship('Order', backref='user')
 
     __mapper_args__ = {
         'polymorphic_identity': 'customer'
