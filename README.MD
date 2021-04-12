@@ -7,9 +7,11 @@ should have the ability to post, edit, and delete their own items.
 
 ## Installation
 
-Download the Latest version of Python
+Update to the latest version of Python3
 
-- Download Python [here](https://www.python.org/downloads/)
+```
+sudo apt-get install python3
+```
 
 ### Install Dependencies
 
@@ -47,6 +49,10 @@ import populateDB
 ```
 
 ## Run the Application
+
+```
+python3 onlineStore.py
+```
 
 ```
 python3 onlineStore.py
