@@ -59,6 +59,7 @@ python3 onlineStore.py
 ```
 
 To preview the application, please click on the Box URL Preview button in codio
+
 <img src="/images/box url.png" alt="Preview button"/>
 
 ### Preview configuration
