@@ -67,6 +67,9 @@ p3 = Product(
     productcatalogue=mordecaiCatalogue
 )
 
+o1 = Order(customer=Quintus, ordersatus=in_progress)
+line_item = OrderLine(order = o1, product=p1, quantity=1)
+
 db.session.add(sellerOrginisation)
 db.session.add(mordecaiCatalogue)
 db.session.add(desktop)
@@ -79,6 +82,7 @@ db.session.add(Quintus)
 db.session.add_all([in_progress, processing, pending_payment,
                    awaiting_picking, ready_for_delivery, shipped])
 db.session.add_all([p1, p2, p3])
+db.session.add(o1)
 
 db.session.commit()
 
