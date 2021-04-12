@@ -67,7 +67,7 @@ p3 = Product(
     productcatalogue=mordecaiCatalogue
 )
 
-o1 = Order(customer=Quintus, orderstatus=in_progress)
+o1 = Order(customer=Quintus, orderstatus=in_progress, total=1234)
 line_item = OrderLine(order = o1, product=p1, quantity=1)
 
 db.session.add(sellerOrginisation)
