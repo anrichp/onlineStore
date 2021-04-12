@@ -2,8 +2,9 @@ from app import db
 from app.models import User, Customer, Orginisation, Product, Category, Location, ProductStatus, ProductCatalogue, Order, OrderLine, Orderstatus
 
 # Create seller
-sellerOrginisation = Orginisation(
-    'Anrich', 'Potgieter', 'anrichp@gmail.com', '07907451834', 'Mordecai', '12345678')
+sellerOrginisation = Orginisation(first_name='Anrich', last_name='Potgieter',
+                                  email_address='anrichp@gmail.com', contact_number='07907451834',
+                                  company_name='Mordecai', tax_certificate='1234')
 
 # Create Customer
 Quintus = Customer(first_name='Quintus', last_name='Potgieter',
@@ -42,7 +43,7 @@ p1 = Product(
     category=laptop,
     location=warehouse,
     productstatus=inStock,
-    productcatalogue = mordecaiCatalogue
+    productcatalogue=mordecaiCatalogue
 )
 
 
