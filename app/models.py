@@ -210,6 +210,8 @@ class Order(db.Model):
         products for each order.
 
         Relationship:
+            - orderstatus: Pass orderstatus object to order.
+            - customer: pass customer to order
             - line_items: Relationship which joins the order to the order line items
 
     """
