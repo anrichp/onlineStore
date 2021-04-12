@@ -24,7 +24,7 @@ pip3 install -r requirements.txt
 
 ## Create & Populate Database
 
-- A database with the name **onlinestore** has been created in codio for this project. If you wish to run this project outside of codio, you will need to create a new MySQL database with the name **onlinestore** and modify the flask config.py file and modify the connect string to reflect the newly created database.
+- A database with the name **onlinestore** has been created in codio for this project. If you wish to run this project outside of codio, you will need to create a new MySQL database with the name **onlinestore** and modify the flask config.py file by modifying the connect string to reflect the newly created database.
 
 ```
 export FLASK_APP=onlinestore.py
