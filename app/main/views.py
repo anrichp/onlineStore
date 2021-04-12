@@ -187,5 +187,7 @@ def orders():
 
     """
     orders = db.query(Order).all()
+    if order is None:
+        return redirect(url_for('.index'))
 
     return render_template('orders.html', orders=orders)
