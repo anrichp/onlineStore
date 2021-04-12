@@ -172,6 +172,7 @@ def checkout():
     for price in products:
         total_cost += price.product_price
 
+
 @main.route('/orders')
 def orders():
     """ Orders Decorator and function to view all orders
@@ -181,9 +182,10 @@ def orders():
 
     Returns:
         TODO:
-         - Query all orders
          - Create order.html 
 
 
     """
-    pass
+    orders = db.query(Order).all()
+
+    return render_template('orders.html', orders=orders)
